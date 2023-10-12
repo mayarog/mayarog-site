@@ -66,7 +66,7 @@ module.exports = configure(function (/* ctx */) {
       // vueOptionsAPI: false,
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
-      publicPath: 'mayarog-site',
+      publicPath: process.env.NODE_ENV === "production" ? "/mayarog-site/" : "/",
       // analyze: true,
       // env: {},
       // rawDefine: {}
