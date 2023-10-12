@@ -11,7 +11,7 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Mayarog Web</q-toolbar-title>
+        <q-toolbar-title> Mayarog Web - teste</q-toolbar-title>
 
         <div>Sistemas e Consultoria</div>
       </q-toolbar>
