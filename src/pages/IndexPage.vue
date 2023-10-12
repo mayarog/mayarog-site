@@ -10,12 +10,12 @@
           alt="Mayarog Web"
           src="~assets/mayarog-logo.png"
           class="fixed-center"
-          style="width: 400px; height: 400px"
+          style="width: 200px; height: 200px"
         />
       </div>
 
       <div class="q-pa-md flex flex-center fixed-bottom">
-        <h3 class="text-h3">Sistemas web e Consultoria em T.I.</h3>
+        <h4 class="text-h4">Sistemas web e Consultoria em T.I.</h4>
       </div>
       <div class="q-pa-md flex flex-center fixed-bottom">
         <!-- Seção de contato do WhatsApp -->
