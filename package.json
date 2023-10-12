@@ -11,7 +11,7 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
     "build": "quasar build",
-    "deploy": "quasar build && gh-pages --dist 'dist/spa' --branch 'gh-pages'"
+    "deploy": "gh-pages --dist 'dist/spa' --branch 'gh-pages'"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
