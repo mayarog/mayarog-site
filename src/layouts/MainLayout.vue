@@ -11,9 +11,9 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Mayarog </q-toolbar-title>
+        <q-toolbar-title> Mayarog Web</q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>Sistemas e Consultoria</div>
       </q-toolbar>
     </q-header>
 
