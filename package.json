@@ -11,8 +11,12 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
     "build": "quasar build",
+<<<<<<< HEAD
     "deploy": "gh-pages --dist 'dist/spa' --branch 'gh-pages'",
     "deploy-dev": "yarn build && git add dist && git commit -m 'adding dist subtree' && git subtree push --prefix dist origin gh-pages"
+=======
+    "deploy": "push-dir --dir=dist/spa --remote=gh-pages --branch=main"
+>>>>>>> chore(frontend): add push-dir package
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
