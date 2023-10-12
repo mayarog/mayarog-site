@@ -4,6 +4,10 @@ node_modules
 
 # Quasar core related directories
 .quasar
+<<<<<<< HEAD
+=======
+/dist
+>>>>>>> chore(frontend): install quasar
 /quasar.config.*.temporary.compiled*
 
 # Cordova related directories and files

@@ -60,14 +60,23 @@ module.exports = configure(function (/* ctx */) {
         node: 'node16'
       },
 
+<<<<<<< HEAD
       vueRouterMode: 'history', // available values: 'hash', 'history'
+=======
+      vueRouterMode: 'hash', // available values: 'hash', 'history'
+>>>>>>> chore(frontend): install quasar
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
+<<<<<<< HEAD
       // publicPath: process.env.NODE_ENV === "production" ? "/mayarog-site/" : "/",
       publicPath: 'mayarog-site',
+=======
+
+      // publicPath: '/',
+>>>>>>> chore(frontend): install quasar
       // analyze: true,
       // env: {},
       // rawDefine: {}
