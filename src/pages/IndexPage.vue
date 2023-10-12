@@ -1,17 +1,43 @@
 <template>
-  <q-page class="flex flex-center">
-    <h2 class="text-h2 fixed-top">Mayarog WEB</h2>
-    <img
-      alt="Mayarog Web"
-      src="~assets/mayarog-logo.png"
-      class="fixed-center"
-      style="width: 300px; height: 300px"
-    />
-    <h4 class="text-h4 fixed-bottom">Sistemas web e Consultoria em T.I.</h4>
-    <h5 class="fixed-bottom-left">
-      <q-icon name="record_voice_over" />+55 (77) 991 100 227
-    </h5>
-    <h5 class="fixed-bottom-right"><q-icon name="chat" />@mayarog_web</h5>
+  <q-page>
+    <q-page-container>
+      <div class="q-pa-md flex flex-center">
+        <h1 class="q-mb-md text-h1">Mayarog WEB</h1>
+      </div>
+
+      <div class="q-pa-md flex flex-center">
+        <q-img
+          alt="Mayarog Web"
+          src="~assets/mayarog-logo.png"
+          class="fixed-center"
+          style="width: 400px; height: 400px"
+        />
+      </div>
+
+      <div class="q-pa-md flex flex-center fixed-bottom">
+        <h3 class="text-h3">Sistemas web e Consultoria em T.I.</h3>
+      </div>
+      <div class="q-pa-md flex flex-center fixed-bottom">
+        <!-- Seção de contato do WhatsApp -->
+        <div class="q-pa-md flex flex-center">
+          <q-btn
+            icon="mdi-whatsapp"
+            color="green"
+            @click="enviarMensagemWhatsApp"
+            label="Contato por WhatsApp"
+          />
+        </div>
+        <!-- Seção de contato do Instagram -->
+        <div class="q-pa-md flex flex-center">
+          <q-btn
+            icon="mdi-instagram"
+            color="primary"
+            @click="irParaInstagram"
+            label="Siga-nos no Instagram"
+          />
+        </div>
+      </div>
+    </q-page-container>
   </q-page>
 </template>
 
@@ -19,6 +45,17 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "IndexPage"
+  name: "IndexPage",
+  methods: {
+    irParaInstagram() {
+      window.open("https://www.instagram.com/mayarogweb", "_blank");
+    },
+    enviarMensagemWhatsApp() {
+      window.open("https://wa.me/5577991100227", "_blank");
+    },
+    enviarEmail() {
+      window.open("mailto:marcreinan@outlook.com", "_blank");
+    }
+  }
 });
 </script>
