@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <!-- <q-header elevated>
+    <q-header elevated>
       <q-toolbar color="teal-lighten-1">
         <q-btn
           flat
@@ -10,11 +10,16 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-        <q-toolbar-title> Mayarog Web</q-toolbar-title>
+        <q-img
+          alt="Mayarog Web"
+          src="~assets/mayarog-logo.png"
+          style="width: 50px; height: 50px"
+        />
+        <q-toolbar-title> Mayarog</q-toolbar-title>
 
-        <div>Sistemas e Consultoria</div>
+        <div>Sistemas web & consultoria em T.I.</div>
       </q-toolbar>
-    </q-header> -->
+    </q-header>
 
     <!-- <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
