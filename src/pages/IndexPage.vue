@@ -1,10 +1,7 @@
 <template>
   <q-page class="bg-black text-white text-center">
     <q-page-container>
-      <div class="q-pa-md flex flex-center">
-        <h1 class="q-mb-md text-h1">Mayarog</h1>
-      </div>
-
+      <!-- <h1 class="q-mb-md text-h1">Mayarog</h1> -->
       <div class="q-pa-md flex flex-center">
         <q-img
           alt="Mayarog Web"
@@ -13,6 +10,8 @@
           style="width: 200px; height: 200px"
         />
       </div>
+
+      <div class="q-pa-md flex flex-center"></div>
       <div class="q-pa-md flex flex-center fixed-bottom">
         <!-- Seção de contato do WhatsApp -->
         <div class="q-pa-md flex flex-center">
