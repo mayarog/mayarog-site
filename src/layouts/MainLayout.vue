@@ -12,7 +12,13 @@
           <small>Sistemas web & consultoria em T.I</small>
         </q-toolbar-title>
         <div class="q-gutter-y-md">
-          <q-tabs v-model="tab" inline-label outside-arrows mobile-arrows>
+          <q-tabs
+            v-model="tab"
+            :style="$q.screen.sm || $q.screen.xs ? { maxWidth: '300px' } : {}"
+            inline-label
+            outside-arrows
+            mobile-arrows
+          >
             <q-route-tab to="/" exact label="Início" icon="home"></q-route-tab>
             <!-- <q-tab name="images" label="Desenvolvimento de Sistemas"></q-tab> -->
             <q-separator dark vertical inset></q-separator>
