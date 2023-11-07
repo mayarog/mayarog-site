@@ -3,9 +3,9 @@
     class="fullscreen bg-black text-white text-center q-pa-md flex flex-center"
   >
     <div>
-      <div style="font-size: 30vh">Ops...</div>
+      <div style="font-size: 20vh">Ops...</div>
 
-      <div class="text-h2" style="opacity: 0.4">
+      <div class="text-h3" style="opacity: 0.4">
         Essa página está em construção... <br />
         Em breve teremos novidades por aqui ;)
       </div>
