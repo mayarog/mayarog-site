@@ -12,7 +12,7 @@
 
       <q-btn
         class="q-mt-xl"
-        color="green"
+        color="primary"
         text-color="white"
         unelevated
         to="/"

@@ -14,6 +14,7 @@
         <div class="q-gutter-y-md">
           <q-tabs
             v-model="tab"
+            class="text-primary"
             :style="$q.screen.sm || $q.screen.xs ? { maxWidth: '300px' } : {}"
             inline-label
             outside-arrows

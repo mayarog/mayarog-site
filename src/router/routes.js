@@ -22,6 +22,13 @@ const routes = [
       { path: '', component: () => import('pages/UnderConstruction.vue') }
     ]
   },
+  {
+    path: '/em-construcao',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/UnderConstruction.vue') }
+    ]
+  },
 
   // Always leave this as last one,
   // but you can also remove it
