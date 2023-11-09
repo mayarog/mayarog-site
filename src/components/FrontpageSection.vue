@@ -1,5 +1,8 @@
 <template>
-  <q-page-container class="text-black custom-background">
+  <q-page-container
+    class="text-black custom-background"
+    style="background: radial-gradient(circle, #35ff50 0%, #018813 100%)"
+  >
     <div class="flex flex-center">
       <h1 class="text-h1">Mayarog</h1>
     </div>
@@ -8,7 +11,7 @@
     </div>
     <div class="flex flex-center">
       <h4 class="text-h4">
-        {{ getRandonSlogan().slogan }}
+        {{ slogan }}
       </h4>
     </div>
     <!-- Seção de contato do WhatsApp -->
@@ -16,13 +19,15 @@
       <div class="q-gutter-sm">
         <q-btn
           icon="mdi-whatsapp"
-          color="primary"
+          color="secondary"
+          rounded
           @click="enviarMensagemWhatsApp"
           label="Contato por WhatsApp"
         />
         <q-btn
           icon="mdi-instagram"
-          color="primary"
+          color="secondary"
+          rounded
           @click="irParaInstagram"
           label="Siga-nos no Instagram"
         />
@@ -32,21 +37,12 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 
 export default defineComponent({
   name: "FrontpageSection",
-  methods: {
-    irParaInstagram() {
-      window.open("https://www.instagram.com/mayarogweb", "_blank");
-    },
-    enviarMensagemWhatsApp() {
-      window.open("https://wa.me/5577991100227", "_blank");
-    },
-    enviarEmail() {
-      window.open("mailto:marcreinan@outlook.com", "_blank");
-    },
-    getRandonSlogan() {
+  setup() {
+    function getRandonSlogan() {
       const slogans = [
         {
           slogan:
@@ -106,6 +102,22 @@ export default defineComponent({
 
       const randomIndex = Math.floor(Math.random() * slogans.length);
       return slogans[randomIndex];
+    }
+    const slogan = computed(() => getRandonSlogan().slogan);
+
+    return {
+      slogan
+    };
+  },
+  methods: {
+    irParaInstagram() {
+      window.open("https://www.instagram.com/mayarogweb", "_blank");
+    },
+    enviarMensagemWhatsApp() {
+      window.open("https://wa.me/5577991100227", "_blank");
+    },
+    enviarEmail() {
+      window.open("mailto:marcreinan@outlook.com", "_blank");
     }
   }
 });
