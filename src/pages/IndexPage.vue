@@ -1,10 +1,14 @@
 <template>
   <q-page class="text-center">
-    <!-- Frontpage Section -->
-    <FrontpageSection />
+    <q-scroll-area ref="scrollAreaRef" style="height: 100vh">
+      <!-- Frontpage Section -->
+      <FrontpageSection />
 
-    <!-- Our Services Section -->
-    <ServiceSection />
+      <!-- Our Services Section -->
+      <ServiceSection />
+
+      <ContactSection />
+    </q-scroll-area>
   </q-page>
 </template>
 
@@ -12,19 +16,31 @@
 import { defineComponent, ref } from "vue";
 import FrontpageSection from "src/components/FrontpageSection.vue";
 import ServiceSection from "src/components/ServiceSection.vue";
+import ContactSection from "src/components/ContactSection.vue";
 
 export default defineComponent({
   name: "IndexPage",
   components: {
     FrontpageSection,
-    ServiceSection
+    ServiceSection,
+    ContactSection
+  },
+  setup() {
+    const position = ref(300);
+    const scrollAreaRef = ref(null);
+    return {
+      animateScroll() {
+        scrollAreaRef.value.setScrollPosition("vertical", position.value, 300);
+        position.value = Math.floor(Math.random() * 1001) * 20;
+      }
+    };
   }
 });
 </script>
 
 <style>
 .custom-background {
-  background-image: url("src/assets/mayarog_background.jfif");
+  background-image: url("src/assets/mayarog_background3.jfif");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
