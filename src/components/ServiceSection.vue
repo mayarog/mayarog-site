@@ -1,5 +1,5 @@
 <template>
-  <q-page-container class="bg-black text-white">
+  <q-page-container id="services" class="bg-black text-white">
     <div class="q-pa-md flex flex-center">
       <div class="col-12">
         <h4 class="text-h5">
@@ -13,11 +13,11 @@
     </div>
     <div class="row">
       <div
-        class="col-xs-12 col-sm-12 col-md-4"
+        class="col-xs-12 col-sm-12 col-md-4 q-pa-md"
         v-for="card in cards"
         :key="card"
       >
-        <q-card class="bg-black text-white q-pa-md">
+        <q-card class="bg-dark text-white">
           <q-card-section>
             <q-icon :name="card.icon" color="primary" size="6rem"></q-icon>
             <div class="text-h6 q-my-md">{{ card.title }}</div>
