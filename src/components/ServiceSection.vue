@@ -48,8 +48,7 @@ export default defineComponent({
       {
         icon: "mdi-application",
         title: "Desenvolvimento Web ou Desktop",
-        subtitle:
-          "Sistemas personalizados sob medida para ajudar nas metas do seu negócio."
+        subtitle: "Sistemas personalizados para ajudar no seu negócio."
       },
       {
         icon: "mdi-cellphone",
