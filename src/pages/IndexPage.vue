@@ -1,6 +1,6 @@
 <template>
   <q-page class="text-center">
-    <q-scroll-area ref="scrollAreaRef" style="height: 100vh">
+    <q-scroll-area ref="scrollAreaRef" style="height: 91vh">
       <!-- Frontpage Section -->
       <FrontpageSection />
 
