@@ -8,6 +8,8 @@
       <ServiceSection />
 
       <ContactSection />
+
+      <FooterSection />
     </q-scroll-area>
   </q-page>
 </template>
@@ -17,13 +19,15 @@ import { defineComponent, ref } from "vue";
 import FrontpageSection from "src/components/FrontpageSection.vue";
 import ServiceSection from "src/components/ServiceSection.vue";
 import ContactSection from "src/components/ContactSection.vue";
+import FooterSection from "src/components/FooterSection.vue";
 
 export default defineComponent({
   name: "IndexPage",
   components: {
     FrontpageSection,
     ServiceSection,
-    ContactSection
+    ContactSection,
+    FooterSection
   },
   setup() {
     const position = ref(300);

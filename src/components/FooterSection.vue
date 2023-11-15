@@ -58,7 +58,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 q-pa-md text-white">
-        2023©Mayarog | Todos os direitos reservados
+        Copyright © 2023 Mayarog - Todos os direitos reservados
       </div>
     </div>
   </q-page-container>
