@@ -1,5 +1,5 @@
 <template>
-  <q-page-container id="contact" class="bg-secondary text-white">
+  <q-page-container id="contact" class="bg-warning text-primary">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-6">
         <div class="q-pa-md flex flex-center">
@@ -52,7 +52,8 @@
             <div class="col-md-4">
               <q-input
                 rounded
-                standout="bg-primary text-white"
+                color="primary"
+                outlined
                 v-model="form.name"
                 label="Nome"
               ></q-input>
@@ -62,7 +63,8 @@
             <div class="col-md-4">
               <q-input
                 rounded
-                standout="bg-primary text-white"
+                color="primary"
+                outlined
                 v-model="form.email"
                 label="Email"
               ></q-input>
@@ -72,7 +74,8 @@
             <div class="col-md-4">
               <q-input
                 rounded
-                standout="bg-primary text-white"
+                color="primary"
+                outlined
                 v-model="form.subject"
                 label="Assunto"
               ></q-input>
@@ -82,7 +85,8 @@
             <div class="col-md-12">
               <q-input
                 rounded
-                standout="bg-primary text-white"
+                color="primary"
+                outlined
                 v-model="form.message"
                 label="Mensagem"
                 type="textarea"
