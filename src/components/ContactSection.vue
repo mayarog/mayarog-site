@@ -12,37 +12,12 @@
               Estamos prontos para ouvir suas ideias, responder suas dúvidas e
               botar em prática o seu projeto digital
             </small>
-            <div class="q-pa-sm">
-              <h5 class="text-h5">Siga-nos nas redes sociais:</h5>
-              <q-btn
-                dense
-                color="primary"
-                round
-                icon="mdi-whatsapp"
-                class="q-ml-md"
-              />
-              <q-btn
-                dense
-                color="primary"
-                round
-                icon="mdi-facebook"
-                class="q-ml-md"
-              />
-              <q-btn
-                dense
-                color="primary"
-                round
-                icon="mdi-instagram"
-                class="q-ml-md"
-              />
-              <q-btn
-                dense
-                color="primary"
-                round
-                icon="mdi-email"
-                class="q-ml-md"
-              />
-            </div>
+            <br />
+            <p class="text-subtitle q-pa-md">
+              Utilize o formulário ao lado para entrar em contato conosco
+              através do nosso whatsapp, ou se preferir, envie-nos um email para
+              <span class="text-primary">contato@mayarog.com</span>
+            </p>
           </div>
         </div>
       </div>
