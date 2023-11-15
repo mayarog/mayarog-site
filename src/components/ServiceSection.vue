@@ -19,7 +19,7 @@
       >
         <q-card class="bg-dark text-white">
           <q-card-section>
-            <q-icon :name="card.icon" color="primary" size="6rem"></q-icon>
+            <q-icon :name="card.icon" color="secondary" size="6rem"></q-icon>
             <div class="text-h6 q-my-md">{{ card.title }}</div>
             <div class="text-subtitle2 q-my-sm">
               {{ card.subtitle }}
@@ -28,7 +28,7 @@
               class="q-my-md"
               to="/em-construcao"
               rounded
-              color="secondary"
+              color="primary"
               label="Saiba mais"
             />
           </q-card-section>
@@ -76,6 +76,21 @@ export default defineComponent({
         icon: "mdi-wordpress",
         title: "Suporte Wordpress",
         subtitle: "Total suporte para o seu site ou sistema feito em wordpress."
+      },
+      {
+        icon: "mdi-palette",
+        title: "Criação de Artes Digitais",
+        subtitle: "Artes digitais personalizadas utilizando I.A"
+      },
+      {
+        icon: "mdi-marker-check",
+        title: "Marketing Digital",
+        subtitle: "Criação e acompanhamento de campanhas digitais "
+      },
+      {
+        icon: "mdi-compass-rose",
+        title: "Identidade visual",
+        subtitle: "Criação da identidade da sua marca ou empresa"
       }
     ]);
 
