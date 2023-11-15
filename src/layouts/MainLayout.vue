@@ -7,118 +7,140 @@
           src="~assets/mayarog-logo.png"
           style="width: 50px; height: 50px"
         />
-        <q-toolbar-title>
+        <q-toolbar-title v-if="!$q.screen.sm || !$q.screen.xs">
           Mayarog <br />
           <small>Sistemas web & consultoria em T.I</small>
         </q-toolbar-title>
         <div class="q-gutter-y-md">
-          <q-tabs
-            v-model="tab"
-            class="text-primary"
-            :style="$q.screen.sm || $q.screen.xs ? { maxWidth: '300px' } : {}"
-            inline-label
-            outside-arrows
-            mobile-arrows
-          >
-            <q-route-tab to="/" exact label="Início" icon="home"></q-route-tab>
-            <!-- <q-tab name="images" label="Desenvolvimento de Sistemas"></q-tab> -->
-            <q-separator dark vertical inset></q-separator>
-            <q-route-tab
-              to="/desenvolvimento-sistemas"
-              exact
-              label="Desenvolvimento de Sistemas"
-              icon="code"
-            ></q-route-tab>
-            <!-- <q-btn-dropdown
-              stretch
-              flat
-              label="Desenvolvimento de Sistemas"
-              icon="code"
-            >
-              <q-list>
-                <q-item-label header>Sistemas WEB</q-item-label>
-                <q-item
-                  v-for="n in 3"
-                  :key="`x.${n}`"
-                  clickable
-                  v-close-popup
-                  tabindex="0"
-                >
-                  <q-item-section avatar>
-                    <q-avatar
-                      icon="folder"
-                      color="secondary"
-                      text-color="white"
-                    ></q-avatar>
-                  </q-item-section>
-                  <q-item-section>
-                    <q-item-label>Photos</q-item-label>
-                    <q-item-label caption>February 22, 2016</q-item-label>
-                  </q-item-section>
-                  <q-item-section side>
-                    <q-icon name="info"></q-icon>
-                  </q-item-section>
-                </q-item>
-                <q-item-label header>Aplicativos</q-item-label>
-                <q-item
-                  v-for="n in 3"
-                  :key="`x.${n}`"
-                  clickable
-                  v-close-popup
-                  tabindex="0"
-                >
-                  <q-item-section avatar>
-                    <q-avatar
-                      icon="folder"
-                      color="secondary"
-                      text-color="white"
-                    ></q-avatar>
-                  </q-item-section>
-                  <q-item-section>
-                    <q-item-label>Photos</q-item-label>
-                    <q-item-label caption>February 22, 2016</q-item-label>
-                  </q-item-section>
-                  <q-item-section side>
-                    <q-icon name="info"></q-icon>
-                  </q-item-section>
-                </q-item>
-                <q-separator inset spaced></q-separator>
-                <q-item-label header>Sistemas Desktop</q-item-label>
-                <q-item
-                  v-for="n in 3"
-                  :key="`y.${n}`"
-                  clickable
-                  v-close-popup
-                  tabindex="0"
-                >
-                  <q-item-section avatar>
-                    <q-avatar
-                      icon="assignment"
-                      color="primary"
-                      text-color="white"
-                    ></q-avatar>
-                  </q-item-section>
-                  <q-item-section>
-                    <q-item-label>Vacation</q-item-label>
-                    <q-item-label caption>February 22, 2016</q-item-label>
-                  </q-item-section>
-                  <q-item-section side>
-                    <q-icon name="info"></q-icon>
-                  </q-item-section>
-                </q-item>
-              </q-list>
-            </q-btn-dropdown> -->
-            <q-separator dark vertical inset></q-separator>
-            <q-route-tab
-              to="/consultoria"
-              exact
-              label="Consultoria em Projetos/T.I"
-              icon="mail"
-            ></q-route-tab>
+          <q-bar style="min-width: 250px" class="text-white rounded-borders">
+            <div class="cursor-pointer non-selectable">
+              <q-item clickable to="/" v-ripple>
+                <q-item-section avatar>
+                  <q-avatar
+                    color="primary"
+                    text-color="white"
+                    icon="home"
+                  ></q-avatar>
+                </q-item-section>
+                <q-item-section>Inicio</q-item-section>
+              </q-item>
+            </div>
+            <div class="cursor-pointer non-selectable">
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-avatar
+                    color="primary"
+                    text-color="white"
+                    icon="mdi-application"
+                  ></q-avatar>
+                </q-item-section>
+                <q-item-section>Serviços</q-item-section>
+              </q-item>
+              <q-menu>
+                <q-list style="min-width: 100px" class="bg-black text-white">
+                  <q-item clickable>
+                    <q-item-section>Desenvolvimento de Sistemas</q-item-section>
+                    <q-item-section side>
+                      <q-icon name="keyboard_arrow_right"></q-icon>
+                    </q-item-section>
 
-            <!-- <q-tab name="articles" label="Projetos de I.A"></q-tab> -->
-            <!-- <q-tab name="articles" label="Contato"></q-tab> -->
-          </q-tabs>
+                    <q-menu anchor="top end" self="top start">
+                      <q-list class="bg-black text-white">
+                        <q-item clickable>
+                          <q-item-section>Sistemas Web</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Lojas Virtuais</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Aplicativos Mobile</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Sistemas Desktop</q-item-section>
+                        </q-item>
+                      </q-list>
+                    </q-menu>
+                  </q-item>
+                  <q-item clickable>
+                    <q-item-section>Consultoria Web/T.I</q-item-section>
+                    <q-item-section side>
+                      <q-icon name="keyboard_arrow_right"></q-icon>
+                    </q-item-section>
+
+                    <q-menu anchor="top end" self="top start">
+                      <q-list class="bg-black text-white">
+                        <q-item clickable>
+                          <q-item-section>Suporte Wordpress</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Adm. de Redes Sociais</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Marketing Digital</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Email Marketing</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Registro de Domínios</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Produção de Conteúdo</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>SEO</q-item-section>
+                        </q-item>
+                      </q-list>
+                    </q-menu>
+                  </q-item>
+                  <!-- <q-separator></q-separator> -->
+                  <q-item clickable>
+                    <q-item-section>Artes Digitais/Web Design</q-item-section>
+                    <q-item-section side>
+                      <q-icon name="keyboard_arrow_right"></q-icon>
+                    </q-item-section>
+                    <q-menu anchor="top end" self="top start">
+                      <q-list class="bg-black text-white">
+                        <q-item clickable>
+                          <q-item-section
+                            >Criação de Artes Digitais</q-item-section
+                          >
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Identidade Visual</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Criação de Logomarcas</q-item-section>
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section
+                            >Artes para Midias Sociais</q-item-section
+                          >
+                        </q-item>
+                        <q-item clickable>
+                          <q-item-section>Edição de Imagens</q-item-section>
+                        </q-item>
+
+                        <q-item clickable>
+                          <q-item-section>SEO</q-item-section>
+                        </q-item>
+                      </q-list>
+                    </q-menu>
+                  </q-item>
+                </q-list>
+              </q-menu>
+            </div>
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-avatar
+                  color="primary"
+                  text-color="white"
+                  icon="mdi-cellphone"
+                ></q-avatar>
+              </q-item-section>
+              <q-item-section>Contato</q-item-section>
+            </q-item>
+          </q-bar>
         </div>
       </q-toolbar>
     </q-header>
