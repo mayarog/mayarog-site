@@ -33,6 +33,11 @@
         />
       </div>
     </div>
+    <div class="q-pa-md flex flex-center">
+      <div class="q-gutter-sm">
+        <q-btn icon="mdi-arrow-down" color="secondary" round />
+      </div>
+    </div>
   </q-page-container>
 </template>
 
