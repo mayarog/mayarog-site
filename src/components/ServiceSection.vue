@@ -1,5 +1,5 @@
 <template>
-  <q-page-container id="services" class="bg-black text-white">
+  <q-page-container id="services" class="bg-black text-white text-center">
     <div class="q-pa-md flex flex-center">
       <div class="col-12">
         <h4 class="text-h5">
