@@ -11,8 +11,8 @@ const routes = [
     path: '/consultoria',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      // { path: '', component: () => import('pages/ConsultingPage.vue') }
-      { path: '', component: () => import('pages/UnderConstruction.vue') }
+      { path: '', component: () => import('pages/ConsultingPage.vue') }
+      // { path: '', component: () => import('pages/UnderConstruction.vue') }
     ]
   },
   {
