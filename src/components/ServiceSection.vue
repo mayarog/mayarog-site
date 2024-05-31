@@ -1,14 +1,11 @@
 <template>
   <q-page-container id="services" class="bg-black text-white text-center">
-    <div class="q-pa-md flex flex-center">
+    <div class="flex flex-center">
       <div class="col-12">
         <h4 class="text-h5">
           Oferecemos serviços de desenvolvimento e consultoria em T.I <br />
         </h4>
-        <small class="text-h6">
-          Com foco em produtos e serviços voltados a web, conheça nossos
-          serviços:
-        </small>
+        <small class="text-h6"> Conheça nossos serviços principais: </small>
       </div>
     </div>
     <div class="row">
@@ -35,6 +32,16 @@
         </q-card>
       </div>
     </div>
+    <div class="flex flex-center">
+      <q-btn
+        class="q-my-md"
+        to="/em-construcao"
+        rounded
+        block
+        color="secondary"
+        label="Conheça todos os serviços"
+      />
+    </div>
   </q-page-container>
 </template>
 
@@ -48,7 +55,13 @@ export default defineComponent({
       {
         icon: "mdi-application",
         title: "Desenvolvimento Web ou Desktop",
-        subtitle: "Sistemas personalizados para ajudar no seu negócio."
+        subtitle:
+          "Sistemas personalizados para ajudar nas metas do seu negócio."
+      },
+      {
+        icon: "mdi-airplane-landing",
+        title: "Landing Pages",
+        subtitle: "Direcione o público direto para a sua página exclusiva."
       },
       {
         icon: "mdi-cellphone",
@@ -68,30 +81,30 @@ export default defineComponent({
         subtitle: "Venda seus produtos para qualquer parte do mundo!"
       },
       {
-        icon: "mdi-check-decagram",
-        title: "Redes Sociais",
-        subtitle: "Gerenciamento e configuração das principais redes sociais"
-      },
-      {
         icon: "mdi-wordpress",
         title: "Suporte Wordpress",
         subtitle: "Total suporte para o seu site ou sistema feito em wordpress."
-      },
-      {
-        icon: "mdi-palette",
-        title: "Criação de Artes Digitais",
-        subtitle: "Artes digitais personalizadas utilizando I.A"
-      },
-      {
-        icon: "mdi-marker-check",
-        title: "Marketing Digital",
-        subtitle: "Criação e acompanhamento de campanhas digitais "
-      },
-      {
-        icon: "mdi-compass-rose",
-        title: "Identidade visual",
-        subtitle: "Criação da identidade da sua marca ou empresa"
       }
+      // {
+      //   icon: "mdi-check-decagram",
+      //   title: "Redes Sociais",
+      //   subtitle: "Gerenciamento e configuração das principais redes sociais"
+      // },
+      // {
+      //   icon: "mdi-palette",
+      //   title: "Criação de Artes Digitais",
+      //   subtitle: "Artes digitais personalizadas utilizando I.A"
+      // },
+      // {
+      //   icon: "mdi-marker-check",
+      //   title: "Marketing Digital",
+      //   subtitle: "Criação e acompanhamento de campanhas digitais "
+      // },
+      // {
+      //   icon: "mdi-compass-rose",
+      //   title: "Identidade visual",
+      //   subtitle: "Criação da identidade da sua marca ou empresa"
+      // }
     ]);
 
     return {
