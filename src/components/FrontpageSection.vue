@@ -1,47 +1,65 @@
 <template>
   <q-page-container
-    class="text-black custom-background"
+    class="text-white custom-background"
   >
-    <div class="flex flex-center">
-      <h1 class="text-h1">Mayarog</h1>
-    </div>
-    <div class="flex flex-center">
-      <h2 class="text-h2">Sistemas web & consultoria em T.I</h2>
-    </div>
-    <div class="flex flex-center">
-      <h4 class="text-h4">
-        {{ slogan }}
-      </h4>
-    </div>
-    <!-- Seção de contato do WhatsApp -->
-    <div class="q-pa-md flex flex-center">
-      <div class="q-gutter-sm">
-        <q-btn
-          icon="mdi-whatsapp"
-          color="secondary"
-          rounded
-          @click="enviarMensagemWhatsApp"
-          label="Contato por WhatsApp"
-        />
-        <q-btn
-          icon="mdi-instagram"
-          color="secondary"
-          rounded
-          @click="irParaInstagram"
-          label="Siga-nos no Instagram"
-        />
+    <div class="row">
+      <div class="col q-pa-lg">
+        <div class="flex flex-center">
+          <div class="q-gutter-sm">
+            <h3 class="">Mayarog</h3>
+          </div>
+        </div>
+        <div class="flex flex-center">
+          <div class="q-gutter-sm">
+            <h4 class="">Soluções & Consultoria web</h4>
+          </div>
+        </div>
+        <div class="flex flex-center">
+          <h5 class="text-h5">
+            {{ slogan }}
+          </h5>
+        </div>
+        <!-- Seção de contato do WhatsApp -->
+        <div class="q-pa-md flex flex-center">
+          <div class="q-gutter-sm">
+            <q-btn
+              icon="mdi-whatsapp"
+              color="secondary"
+              rounded
+              @click="enviarMensagemWhatsApp"
+              label="Contato por WhatsApp"
+            />
+            <q-btn
+              icon="mdi-instagram"
+              color="secondary"
+              rounded
+              @click="irParaInstagram"
+              label="Siga-nos no Instagram"
+            />
+          </div>
+        </div>
+        <!-- <div class="q-pa-md flex flex-center">
+          <div class="q-gutter-sm">
+            <q-btn icon="mdi-arrow-down" color="accent" round />
+          </div>
+        </div> -->
       </div>
-    </div>
-    <div class="q-pa-md flex flex-center">
-      <div class="q-gutter-sm">
-        <q-btn icon="mdi-arrow-down" color="accent" round />
+      <div class="col">
+        <div class="flex flex-center">
+          <q-img
+          :src="url"
+          spinner-color="white"
+          class="blurred-border green-shadow"
+          style="height: 40vh; max-width: 40vw"
+          ></q-img>
+        </div>
       </div>
     </div>
   </q-page-container>
 </template>
 
 <script>
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
 
 export default defineComponent({
   name: "FrontpageSection",
@@ -108,9 +126,11 @@ export default defineComponent({
       return slogans[randomIndex];
     }
     const slogan = computed(() => getRandonSlogan().slogan);
+    const url = ref('https://picsum.photos/500/300')
 
     return {
-      slogan
+      slogan,
+      url
     };
   },
   methods: {
@@ -128,10 +148,44 @@ export default defineComponent({
 </script>
 <style>
 .custom-background {
-  background-image: url("src/assets/mayarog_background3.jfif");
+  background-color: #101728;
+  /* background-image: url("src/assets/mayarog_background3.jfif"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+}
+
+.blurred-border {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 300px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.blurred-border::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Ajuste conforme necessário */
+    left: -10px; /* Ajuste conforme necessário */
+    right: -10px; /* Ajuste conforme necessário */
+    bottom: -10px; /* Ajuste conforme necessário */
+    z-index: -1;
+    border-radius: 10px; /* Mesma borda arredondada */
+    background: inherit;
+    filter: blur(300px); /* Ajuste o valor do desfoque conforme necessário */
+    opacity: 0.6; /* Ajuste a opacidade conforme necessário */
+}
+
+.green-shadow {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 500px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 0 100px 50px rgba(0, 255, 0, 0.8); /* Sombra verde desfocada */
 }
 </style>
