@@ -1,7 +1,6 @@
 <template>
   <q-page-container
     class="text-black custom-background"
-    style="background: radial-gradient(circle, #35ff50 0%, #018813 100%)"
   >
     <div class="flex flex-center">
       <h1 class="text-h1">Mayarog</h1>
@@ -127,3 +126,12 @@ export default defineComponent({
   }
 });
 </script>
+<style>
+.custom-background {
+  background-image: url("src/assets/mayarog_background3.jfif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+</style>
