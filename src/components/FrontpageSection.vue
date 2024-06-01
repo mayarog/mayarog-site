@@ -24,14 +24,14 @@
           <div class="q-gutter-sm">
             <q-btn
               icon="mdi-whatsapp"
-              color="secondary"
+              color="primary"
               rounded
               @click="enviarMensagemWhatsApp"
               label="Contato por WhatsApp"
             />
             <q-btn
               icon="mdi-instagram"
-              color="secondary"
+              color="primary"
               rounded
               @click="irParaInstagram"
               label="Siga-nos no Instagram"
