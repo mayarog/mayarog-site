@@ -1,10 +1,35 @@
 <template>
-  <q-page-container
-    class="text-white custom-background"
-  >
+   <q-carousel
+      animated
+      arrows
+      autoplay
+      infinite
+      navigation
+      v-model="slide"
+      class="text-white"
+    >
+      <q-carousel-slide name="first" :img-src="url">
+        <div class="absolute-bottom custom-caption q-pl-xl q-pb-xl">
+          <div class="text-h2">Soluções Web</div>
+          <div class="text-subtitle1">Te ajudamos a trazer sua empresa para o mundo digital.</div>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide name="second" :img-src="url">
+        <div class="absolute-bottom custom-caption q-pl-xl q-pb-xl">
+          <div class="text-h2">Consultoria em T.I</div>
+          <div class="text-subtitle1">Famous City</div>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide name="third" :img-src="url">
+        <div class="absolute-bottom custom-caption q-pl-xl q-pb-xl">
+          <div class="text-h2">Third stop</div>
+          <div class="text-subtitle1">Famous Bridge</div>
+        </div>
+      </q-carousel-slide>
+    </q-carousel>
     <div class="row">
       <div class="col q-pa-lg">
-        <div class="flex flex-center">
+        <!-- <div class="flex flex-center">
           <div class="q-gutter-sm">
             <h3 class="">Mayarog</h3>
           </div>
@@ -13,13 +38,12 @@
           <div class="q-gutter-sm">
             <h4 class="">Soluções & Consultoria web</h4>
           </div>
-        </div>
+        </div> -->
         <div class="flex flex-center">
           <h5 class="text-h5">
             {{ slogan }}
           </h5>
         </div>
-        <!-- Seção de contato do WhatsApp -->
         <div class="q-pa-md flex flex-center">
           <div class="q-gutter-sm">
             <q-btn
@@ -38,24 +62,8 @@
             />
           </div>
         </div>
-        <!-- <div class="q-pa-md flex flex-center">
-          <div class="q-gutter-sm">
-            <q-btn icon="mdi-arrow-down" color="accent" round />
-          </div>
-        </div> -->
-      </div>
-      <div class="col">
-        <div class="flex flex-center">
-          <q-img
-          :src="url"
-          spinner-color="white"
-          class="blurred-border green-shadow"
-          style="height: 40vh; max-width: 40vw"
-          ></q-img>
-        </div>
       </div>
     </div>
-  </q-page-container>
 </template>
 
 <script>
@@ -126,11 +134,12 @@ export default defineComponent({
       return slogans[randomIndex];
     }
     const slogan = computed(() => getRandonSlogan().slogan);
-    const url = ref('https://picsum.photos/500/300')
+    const url = ref('https://picsum.photos/1024/768')
 
     return {
       slogan,
-      url
+      url,
+      slide: ref('first')
     };
   },
   methods: {
@@ -148,8 +157,8 @@ export default defineComponent({
 </script>
 <style>
 .custom-background {
-  background-color: #101728;
-  /* background-image: url("src/assets/mayarog_background3.jfif"); */
+  /*background-color: #101728;*/
+  background-image: url("src/assets/mayarog_background3.jfif");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

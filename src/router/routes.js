@@ -9,7 +9,7 @@ const routes = [
   },
   {
     path: '/consultoria',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/InnerLayout.vue'),
     children: [
       { path: '', component: () => import('pages/ConsultingPage.vue') }
       // { path: '', component: () => import('pages/UnderConstruction.vue') }

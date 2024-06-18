@@ -3,15 +3,15 @@
     <div class="flex flex-center">
       <div class="col-12">
         <h4 class="text-h5">
-          Oferecemos serviços de desenvolvimento e consultoria em T.I <br />
+          Oferecemos soluções e consultoria em projetos web <br />
         </h4>
-        <small class="text-h6"> Conheça nossos serviços principais: </small>
+        <small class="text-h6"> Conheça nossos principais serviços: </small>
       </div>
     </div>
     <div class="row">
       <div
         class="col-xs-12 col-sm-12 col-md-4 q-pa-md"
-        v-for="card in cards"
+        v-for="(card, index) in cards"
         :key="card"
       >
         <q-card class="bg-dark text-white">
@@ -23,14 +23,27 @@
             </div>
             <q-btn
               class="q-my-md"
-              to="/em-construcao"
               rounded
               color="primary"
               label="Saiba mais"
+              @click="openDialog(index)"
             />
           </q-card-section>
         </q-card>
       </div>
+      <q-dialog v-model="dialogVisible">
+        <q-card>
+          <q-card-section>
+            <div class="text-h6">{{ currentItem.value.title }}</div>
+          </q-card-section>
+          <q-card-section>
+            <p>{{ currentItem.value.subtitle }}</p>
+          </q-card-section>
+          <q-card-actions align="right">
+            <q-btn flat label="Fechar" color="primary" v-close-popup />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
     </div>
     <div class="flex flex-center">
       <q-btn
@@ -66,8 +79,7 @@ export default defineComponent({
       {
         icon: "mdi-cellphone",
         title: "Desenvolvimento de Aplicativos",
-        subtitle:
-          "Aplicativos feitos para os principais dispositivos do mercado."
+        subtitle: "Aplicativos feitos para os principais dispositivos do mercado."
       },
       {
         icon: "mdi-lightbulb",
@@ -107,9 +119,20 @@ export default defineComponent({
       // }
     ]);
 
-    return {
-      cards
+    const dialogVisible = ref(false);
+    const currentItem = ref({});
+
+    const openDialog = (index) => {
+      currentItem.value = cards.value[index];
+      dialogVisible.value = true;
     };
-  }
+
+    return {
+      cards,
+      dialogVisible,
+      currentItem,
+      openDialog,
+    };
+  },
 });
 </script>

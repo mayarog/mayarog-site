@@ -6,7 +6,6 @@
     </q-page-container>
   </q-layout>
 </template>
-
 <script>
 import { defineComponent, ref } from "vue";
 import TheHeader from "src/components/TheHeader.vue";

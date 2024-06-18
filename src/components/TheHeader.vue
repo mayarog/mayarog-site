@@ -1,5 +1,6 @@
 <template>
   <q-header elevated class="bg-black">
+      <slot name="headerToolbar"></slot>
       <q-toolbar>
         <q-img
           alt="Mayarog Web"
@@ -11,7 +12,7 @@
           <small>Soluções & Consultoria Web</small>
         </q-toolbar-title>
         <div class="q-gutter-y-md">
-          <q-bar style="min-width: 250px" class="text-white rounded-borders">
+          <q-bar style="min-width: 500px" class="text-white rounded-borders">
             <div class="cursor-pointer non-selectable">
               <q-item clickable @click="animateScroll(0)" v-ripple>
                 <q-item-section avatar>
@@ -22,6 +23,18 @@
                   ></q-avatar>
                 </q-item-section>
                 <q-item-section>Inicio</q-item-section>
+              </q-item>
+            </div>
+            <div class="cursor-pointer non-selectable">
+              <q-item clickable @click="animateScroll(0)" v-ripple>
+                <q-item-section avatar>
+                  <q-avatar
+                    color="primary"
+                    text-color="white"
+                    icon="mdi-account-group"
+                  ></q-avatar>
+                </q-item-section>
+                <q-item-section>Quem Somos</q-item-section>
               </q-item>
             </div>
             <div class="cursor-pointer non-selectable">
@@ -53,9 +66,10 @@
                           <q-menu anchor="top end" self="top start">
                             <q-list class="bg-black text-white">
                               <q-item clickable>
-                                <q-item-section
-                                  >Landing Pages/Sites</q-item-section
-                                >
+                                <q-item-section>Sites</q-item-section>
+                              </q-item>
+                              <q-item clickable>
+                                <q-item-section>Landing Pages</q-item-section>
                               </q-item>
                               <q-item clickable>
                                 <q-item-section>Sistemas ERP</q-item-section>
@@ -93,7 +107,7 @@
                           <q-item-section>Sistemas Desktop</q-item-section>
                         </q-item>
                         <q-item clickable>
-                          <q-item-section>Micro Serviços</q-item-section>
+                          <q-item-section>Microsserviços</q-item-section>
                         </q-item>
                       </q-list>
                     </q-menu>
@@ -180,6 +194,7 @@
           </q-bar>
         </div>
       </q-toolbar>
+      <slot name="footerToolbar"></slot>
     </q-header>
 </template>
 <script>
