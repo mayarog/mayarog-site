@@ -17,6 +17,7 @@
   "dependencies": {
     "@quasar/cli": "^2.3.0",
     "@quasar/extras": "^1.16.4",
+    "@vueuse/motion": "^2.2.3",
     "axios": "^1.2.1",
     "quasar": "^2.6.0",
     "vue": "^3.0.0",
