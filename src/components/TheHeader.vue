@@ -1,20 +1,24 @@
 <template>
-  <q-header elevated class="bg-black">
+  <q-header class="bg-dark">
+    <div class="row">
       <slot name="headerToolbar"></slot>
-      <q-toolbar>
-        <q-img
-          alt="Mayarog Web"
-          src="~assets/mayarog-logo.png"
-          style="width: 50px; height: 50px"
-        />
-        <q-toolbar-title v-if="!$q.screen.sm || !$q.screen.xs">
-          <span class="mt-1">Mayarog</span><br />
-          <small>Soluções & Consultoria Web</small>
+      <q-toolbar class="q-my-md">
+        <q-toolbar-title>
+          <MayarogLogo />
         </q-toolbar-title>
-        <div class="q-gutter-y-md">
-          <q-bar style="min-width: 500px" class="text-white rounded-borders">
+        <!-- Remove hidden to make buttons appear -->
+        <div class="flex justify-end q-gutter-y-md desktop-only">
+          <q-bar
+            style="min-width: 500px"
+            class="text-white rounded-borders bg-dark"
+          >
             <div class="cursor-pointer non-selectable">
-              <q-item clickable @click="animateScroll(0)" v-ripple>
+              <q-item
+                clickable
+                @click="animateScroll(0)"
+                href="#front-page-section"
+                v-ripple
+              >
                 <q-item-section avatar>
                   <q-avatar
                     color="primary"
@@ -26,7 +30,12 @@
               </q-item>
             </div>
             <div class="cursor-pointer non-selectable">
-              <q-item clickable @click="animateScroll(0)" v-ripple>
+              <q-item
+                clickable
+                @click="animateScroll(0)"
+                href="#about-us-section"
+                v-ripple
+              >
                 <q-item-section avatar>
                   <q-avatar
                     color="primary"
@@ -181,7 +190,12 @@
                 </q-list>
               </q-menu>
             </div>
-            <q-item clickable v-ripple @click="animateScroll(1920)">
+            <q-item
+              clickable
+              v-ripple
+              @click="animateScroll(1920)"
+              href="#contact-section"
+            >
               <q-item-section avatar>
                 <q-avatar
                   color="primary"
@@ -195,11 +209,10 @@
         </div>
       </q-toolbar>
       <slot name="footerToolbar"></slot>
-    </q-header>
+    </div>
+  </q-header>
 </template>
-<script>
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "TheHeader",
-});
+
+<script setup>
+import MayarogLogo from "components/MayarogLogo.vue";
 </script>
