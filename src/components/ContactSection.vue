@@ -1,28 +1,43 @@
 <template>
-  <q-page-container id="contact" class="bg-warning text-primary text-center">
+  <q-page-container id="contact" class="bg-dark-2 text-primary text-center">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-6">
-        <div class="q-pa-md flex flex-center">
-          <div class="col-md-6 text-accent">
-            <h4 class="text-h5">
-              Pronto para conversar sobre seu projeto? Entre em contato conosco!
+        <div class="q-pa-xl flex flex-center text-center">
+          <div class="col-md-6 text-white">
+            <h4 class="text-h5" v-motion-slide-visible-once-left :delay="200">
+              Pronto para conversar sobre seu projeto? <br /><br />
+              Entre em contato conosco!
               <br />
             </h4>
-            <small class="text-h6">
+            <small
+              class="text-h6"
+              v-motion-slide-visible-once-left
+              :delay="300"
+            >
               Estamos prontos para ouvir suas ideias, responder suas dúvidas e
-              botar em prática o seu projeto digital
+              botar em prática o seu projeto digital.
+              <br />
             </small>
-            <br />
-            <p class="text-subtitle q-pa-md">
+            <p
+              class="text-h6 q-py-md"
+              v-motion-slide-visible-once-left
+              :delay="400"
+            >
               Utilize o formulário ao lado para entrar em contato conosco
               através do nosso whatsapp, ou se preferir, envie-nos um email para
-              <span class="text-primary">contato@mayarog.com</span>
+              <a
+                href="mailto:marcreinan@outlook.com"
+                target="_blank"
+                class="text-primary"
+                style="text-decoration: none"
+                >contato@mayarog.com.</a
+              >
             </p>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6">
-        <div class="q-pa-md">
+        <div class="q-mx-xl">
           <div class="q-pa-xs">
             <div class="col-md-4">
               <q-input
@@ -31,7 +46,7 @@
                 outlined
                 v-model="form.name"
                 label="Nome"
-              ></q-input>
+              />
             </div>
           </div>
           <div class="q-pa-xs">
@@ -42,7 +57,7 @@
                 outlined
                 v-model="form.email"
                 label="Email"
-              ></q-input>
+              />
             </div>
           </div>
           <div class="q-pa-xs">
@@ -53,7 +68,7 @@
                 outlined
                 v-model="form.subject"
                 label="Assunto"
-              ></q-input>
+              />
             </div>
           </div>
           <div class="q-pa-xs">
@@ -65,12 +80,14 @@
                 v-model="form.message"
                 label="Mensagem"
                 type="textarea"
-              ></q-input>
+              />
               <q-btn
-                class="q-my-md"
+                class="q-my-md q-px-xl"
                 @click="sendToWhatsApp()"
                 rounded
                 color="primary"
+                text-color="dark"
+                size="16px"
                 label="Enviar"
               />
             </div>
@@ -81,39 +98,32 @@
   </q-page-container>
 </template>
 
-<script>
-import { defineComponent, ref } from "vue";
+<script setup>
+import { reactive } from "vue";
 
-export default defineComponent({
-  name: "ContactSection",
-  setup() {
-    const form = ref({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
-
-    function sendToWhatsApp() {
-      var message = "Nova mensagem de " + form.value.name + "\n\n";
-      message += "=============================" + "\n";
-      message += "*Nome:* " + form.value.name + "\n";
-      message += "*Email:* " + form.value.email + "\n";
-      message += "*Assunto:* " + form.value.subject + "\n";
-      message += "*Mensagem:* " + form.value.message + "\n\n";
-      message += "=============================" + "\n";
-      message += "Mensagem enviada através do site Mayarog.com" + "\n";
-
-      var walink = "https://api.whatsapp.com/send",
-        phoneNumber = "+5577991100227";
-
-      var encodedMessage = encodeURIComponent(message);
-      var whatsappUrl =
-        walink + "?phone=" + phoneNumber + "&text=" + encodedMessage;
-      window.open(whatsappUrl, "_blank");
-    }
-
-    return { form, sendToWhatsApp };
-  }
+const form = reactive({
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
 });
+
+function sendToWhatsApp() {
+  let message = "Nova mensagem de " + form.name + "\n\n";
+  message += "=============================" + "\n";
+  message += "*Nome:* " + form.name + "\n";
+  message += "*Email:* " + form.email + "\n";
+  message += "*Assunto:* " + form.subject + "\n";
+  message += "*Mensagem:* " + form.message + "\n\n";
+  message += "=============================" + "\n";
+  message += "Mensagem enviada através do site Mayarog.com" + "\n";
+
+  const walink = "https://api.whatsapp.com/send";
+  const phoneNumber = "+5577991100227";
+
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl =
+    walink + "?phone=" + phoneNumber + "&text=" + encodedMessage;
+  window.open(whatsappUrl, "_blank");
+}
 </script>
