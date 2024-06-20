@@ -2,7 +2,7 @@
   <q-page>
     <q-scroll-area ref="scrollAreaRef" style="height: 91vh">
       <FrontpageSection id="front-page-section" />
-      <AboutUsSection id="about-us-section" class="q-pt-xl" />
+      <AboutUsSection id="about-us-section" class="q-pa-lg" />
       <ServiceSection id="service-section" />
       <ContactSection id="contact-section" />
       <FooterSection id="footer-section" />
@@ -16,7 +16,8 @@
       shrink
       position="bottom-right"
       :offset="[18, 18]"
-      :scroll-offset="1500">
+      :scroll-offset="1500"
+    >
       <q-btn
         fab
         icon="mdi-arrow-up"
