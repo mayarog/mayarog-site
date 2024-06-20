@@ -106,44 +106,38 @@ function sendEmail() {
       </q-carousel-slide>
     </q-carousel> -->
   <div class="row bg-dark q-pt-xl">
-    <div class="col-lg-6 col-sm-12">
-      <div class="col q-pa-lg">
-        <div class="flex flex-start q-ml-sm">
-          <div
-            class="q-gutter-xs"
-            v-motion-slide-visible-once-left
-            :duration="700"
-          >
-            <h1 class="text-h1 text-white">
-              Soluções Web &<br class="mobile-hide" />
-              Consultoria em T.I
-            </h1>
-          </div>
-        </div>
+    <div class="col-lg-6 col-sm-12 q-pa-lg">
+      <div class="flex flex-start">
         <div
-          class="flex flex-start q-ml-md"
-          v-motion-fade
-          :delay="200"
-          :duration="700"
+          class="q-gutter-xs"
+          v-motion-slide-visible-once-left
+          :duration="500"
         >
-          <h4 class="text-h4 text-white">
-            {{ slogan }}
-          </h4>
+          <h2 class="text-h2 text-white">
+            Soluções Web &<br class="mobile-hide" />
+            Consultoria em T.I
+          </h2>
         </div>
-        <div class="flex flex-center" :duration="700">
-          <q-btn
-            v-motion
-            :initial="{ opacity: 0, y: 100 }"
-            :enter="{ opacity: 1, y: 0, scale: 1.1 }"
-            :hovered="{ scale: 1.2 }"
-            size="22px"
-            class="q-px-lg q-py-sm q-ml-lg q-mx-md"
-            rounded
-            color="primary"
-            text-color="dark"
-            label="Contato"
-          />
-          <!-- <div class="q-gutter-sm">
+      </div>
+      <div class="flex flex-start" v-motion-fade :delay="200" :duration="500">
+        <h4 class="text-h4 text-white">
+          {{ slogan }}
+        </h4>
+      </div>
+      <div class="flex flex-center" :duration="500">
+        <q-btn
+          v-motion
+          :initial="{ opacity: 0, y: 100 }"
+          :enter="{ opacity: 1, y: 0, scale: 1.1 }"
+          :hovered="{ scale: 1.2 }"
+          size="22px"
+          class="q-px-lg q-py-sm"
+          rounded
+          color="primary"
+          text-color="dark"
+          label="Contato"
+        />
+        <!-- <div class="q-gutter-sm">
                 <q-btn
                   icon="mdi-whatsapp"
                   color="primary"
@@ -159,14 +153,15 @@ function sendEmail() {
                   label="Siga-nos no Instagram"
                 />
               </div> -->
-        </div>
       </div>
     </div>
-    <div class="mobile-hide col-md-6 col-xs-12 flex flex-center">
+    <div
+      class="mobile-hide col-md-12 col-xs-12 col-lg-6 q-mt-lg flex flex-center"
+    >
       <q-img
         v-motion-slide-visible-once-right
         :delay="200"
-        :duration="700"
+        :duration="500"
         class="rounded"
         rounded
         src="https://static.canva.com/web/images/87e22a62965f141aa08e93699b0b3527.jpg"
