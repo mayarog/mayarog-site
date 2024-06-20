@@ -1,98 +1,115 @@
 <template>
-  <q-page-container id="contact" class="bg-dark-2 text-primary text-center">
+  <q-page-container id="contact" class="bg-dark">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-6">
-        <div class="q-pa-xl flex flex-center text-center">
-          <div class="col-md-6 text-white">
-            <h4 class="text-h5" v-motion-slide-visible-once-left :delay="200">
-              Pronto para conversar sobre seu projeto? <br /><br />
-              Entre em contato conosco!
-              <br />
-            </h4>
-            <small
-              class="text-h6"
-              v-motion-slide-visible-once-left
-              :delay="300"
-            >
-              Estamos prontos para ouvir suas ideias, responder suas dúvidas e
-              botar em prática o seu projeto digital.
-              <br />
-            </small>
-            <p
-              class="text-h6 q-py-md"
-              v-motion-slide-visible-once-left
-              :delay="400"
-            >
-              Utilize o formulário ao lado para entrar em contato conosco
-              através do nosso whatsapp, ou se preferir, envie-nos um email para
-              <a
-                href="mailto:marcreinan@outlook.com"
-                target="_blank"
-                class="text-primary"
-                style="text-decoration: none"
-                >contato@mayarog.com.</a
-              >
-            </p>
-          </div>
-        </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+        <h1
+          class="text-h1 text-primary text-left font-customization q-px-lg"
+          v-motion-slide-visible-once-left
+          :duration="500"
+        >
+          Contato
+        </h1>
+        <p
+          class="text-h4 text-left q-pt-md q-pa-lg q-mb-lg"
+          v-motion-slide-visible-once-left
+          :duration="500"
+        >
+          Pronto para conversar sobre seu projeto? Entre em contato conosco!
+        </p>
+        <p
+          class="text-h4 text-left q-px-lg q-mb-xl"
+          v-motion-slide-visible-once-left
+          :duration="500"
+        >
+          Estamos prontos para ouvir suas ideias, responder suas dúvidas e
+          colocar em prática o seu projeto digital!
+        </p>
+        <p
+          class="text-h4 text-left q-px-lg q-mb-xl"
+          v-motion-slide-visible-once-left
+          :duration="500"
+        >
+          Utilize o formulário ao lado para entrar em contato conosco através
+          diretamente em nosso whatsapp, ou se preferir, envie-nos um e-mail
+          para
+          <span style="text-decoration: none" class="text-primary">
+            contato@mayarog.com</span
+          >
+        </p>
+        <p
+          class="text-h4 text-left q-px-lg q-mb-xl"
+          v-motion-slide-visible-once-left
+          :duration="500"
+        >
+          Um de nossos consultores irá te responder o mais breve possível.
+        </p>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-6">
-        <div class="q-mx-xl">
-          <div class="q-pa-xs">
-            <div class="col-md-4">
-              <q-input
-                rounded
-                color="primary"
-                outlined
-                v-model="form.name"
-                label="Nome"
-              />
-            </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 q-mt-xl q-pt-xl">
+        <q-form class="q-mx-xl">
+          <div class="col">
+            <q-input
+              rounded
+              class="q-pa-md"
+              color="primary"
+              outlined
+              v-model="form.name"
+              label="Nome"
+            />
           </div>
-          <div class="q-pa-xs">
-            <div class="col-md-4">
-              <q-input
-                rounded
-                color="primary"
-                outlined
-                v-model="form.email"
-                label="Email"
-              />
-            </div>
+          <div class="col">
+            <q-input
+              rounded
+              class="q-pa-md"
+              color="primary"
+              outlined
+              v-model="form.email"
+              label="Email"
+            />
           </div>
-          <div class="q-pa-xs">
-            <div class="col-md-4">
-              <q-input
-                rounded
-                color="primary"
-                outlined
-                v-model="form.subject"
-                label="Assunto"
-              />
-            </div>
+          <div class="col">
+            <q-input
+              rounded
+              class="q-pa-md"
+              color="primary"
+              outlined
+              v-model="form.subject"
+              label="Assunto"
+            />
           </div>
-          <div class="q-pa-xs">
-            <div class="col-md-12">
-              <q-input
-                rounded
-                color="primary"
-                outlined
-                v-model="form.message"
-                label="Mensagem"
-                type="textarea"
-              />
-              <q-btn
-                class="q-my-md q-px-xl"
-                @click="sendToWhatsApp()"
-                rounded
-                color="primary"
-                text-color="dark"
-                size="16px"
-                label="Enviar"
-              />
-            </div>
+          <div class="col">
+            <q-select
+              rounded
+              outlined
+              class="q-pa-md"
+              v-model="form.type"
+              :options="typeOptions"
+              label="Tipo"
+              option-label="text"
+              option-value="value"
+            />
           </div>
-        </div>
+          <div class="col">
+            <q-input
+              rounded
+              class="q-pa-md"
+              color="primary"
+              outlined
+              v-model="form.message"
+              label="Mensagem"
+              type="textarea"
+            />
+          </div>
+          <div class="col flex flex-center">
+            <q-btn
+              class="q-py-md q-px-xl"
+              @click="sendToWhatsApp()"
+              rounded
+              color="primary"
+              size="16px"
+              label="Enviar"
+            />
+          </div>
+        </q-form>
       </div>
     </div>
   </q-page-container>
@@ -105,8 +122,16 @@ const form = reactive({
   name: "",
   email: "",
   subject: "",
+  type: "",
   message: "",
 });
+
+const typeOptions = [
+  { text: "Novo projeto", value: "new_project" },
+  { text: "Pedido de suporte", value: "suport_request" },
+  { text: "Pedido de suporte", value: "suport_request" },
+  { text: "Pedido de consultoria", value: "consultancy_request" },
+];
 
 function sendToWhatsApp() {
   let message = "Nova mensagem de " + form.name + "\n\n";
@@ -114,6 +139,7 @@ function sendToWhatsApp() {
   message += "*Nome:* " + form.name + "\n";
   message += "*Email:* " + form.email + "\n";
   message += "*Assunto:* " + form.subject + "\n";
+  message += "*Tipo:* " + form.type.text + "\n";
   message += "*Mensagem:* " + form.message + "\n\n";
   message += "=============================" + "\n";
   message += "Mensagem enviada através do site Mayarog.com" + "\n";
