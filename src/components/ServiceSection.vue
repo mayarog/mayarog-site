@@ -1,41 +1,70 @@
 <template>
-  <q-page-container id="services" class="bg-dark text-white text-center">
-    <div class="q-my-xl">
-      <small class="text-h5"> Conheça nossos principais serviços: </small>
+  <q-page-container class="bg-dark text-white text-center">
+    <div class="row flex flex-center q-mb-xl">
+      <div class="col-12">
+        <h1
+          class="text-h1 text-primary text-left font-customization q-px-lg"
+          v-motion-slide-visible-once-bottom
+          :duration="500"
+        >
+          Nossos Serviços
+        </h1>
+        <p
+          class="text-h4 text-left q-pt-md q-pa-lg q-mb-lg"
+          v-motion-slide-visible-once-bottom
+          :duration="500"
+        >
+          Seja para desenvolver um site ou aplicativo sob medida, impulsionar
+          suas vendas com uma loja virtual, fortalecer sua presença online com
+          estratégias de marketing digital ou criar uma identidade visual
+          cativante para sua marca, estamos aqui para ajudar.
+        </p>
+        <p
+          class="text-h4 text-left q-px-lg q-mb-xl"
+          v-motion-slide-visible-once-bottom
+          :duration="500"
+        >
+          Explore nossos serviços e descubra como podemos ajudá-lo a alcançar
+          seus objetivos digitais. Na Mayarog, o futuro da sua presença online
+          começa aqui.
+        </p>
+      </div>
     </div>
     <div class="row">
       <div
-        class="col-xs-12 col-sm-12 col-md-4 q-pa-md"
+        class="col-xs-12 col-sm-12 col-md-6 col-lg-4"
         v-for="(card, index) in cards"
         :key="card"
+        v-motion-slide-visible-once-bottom
+        :delay="index * 100"
+        :duration="500"
       >
-        <q-card
-          class="bg-dark text-white rounded"
-          v-motion-slide-visible-once-bottom
-          flat
-          :delay="index * 120"
+        <q-btn
+          class="service-card q-pa-none q-mt-xl q-mx-md"
+          rounded
+          fab
+          unelevated
+          color="dark"
+          @click="openDialog(index)"
         >
-          <q-card-section>
-            <q-icon :name="card.icon" color="primary" size="6rem"></q-icon>
-            <div class="text-h6 q-my-md">{{ card.title }}</div>
-            <div class="text-subtitle2 q-my-sm">
-              {{ card.subtitle }}
-            </div>
-            <q-btn
-              v-motion
-              :initial="{ opacity: 1, y: 0 }"
-              :enter="{ y: 0, scale: 1.1 }"
-              :hovered="{ scale: 1.2 }"
-              class="q-my-md q-px-lg q-py-sm"
-              rounded
-              color="primary"
-              size="18px"
-              text-color="dark"
-              label="Saiba mais"
-              @click="openDialog(index)"
-            />
-          </q-card-section>
-        </q-card>
+          <q-card class="text-white rounded flex flex-center" flat>
+            <q-card-section class="q-pt-lg">
+              <q-icon :name="card.icon" color="primary" size="6rem" />
+              <div class="text-h6 q-my-md">
+                <strong>{{ card.title }}</strong>
+              </div>
+              <div class="text-h6 q-my-sm">
+                {{ card.subtitle }}
+              </div>
+              <div
+                style="display: relative"
+                class="text-h6 q-ma-lg q-mx-xl q-pa-sm rounded bg-primary"
+              >
+                <strong>Saiba mais</strong>
+              </div>
+            </q-card-section>
+          </q-card>
+        </q-btn>
       </div>
       <q-dialog v-model="dialogVisible">
         <q-card>
@@ -133,3 +162,23 @@ const openDialog = (index) => {
   dialogVisible.value = true;
 };
 </script>
+
+<style scoped>
+.service-card:hover ::before {
+  display: none;
+}
+.service-card .q-card__section {
+  transition: all ease-in-out 0.1s;
+}
+.service-card:hover .q-card__section {
+  background-color: #32b529;
+  transition: all ease-in-out 0.1s;
+}
+.service-card i.q-icon::before {
+  transition: all ease-in-out 0.1s;
+}
+.service-card:hover i.q-icon::before {
+  color: #101728;
+  transition: all ease-in-out 0.1s;
+}
+</style>
