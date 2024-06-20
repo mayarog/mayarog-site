@@ -14,6 +14,7 @@
           >
             <div class="cursor-pointer non-selectable">
               <q-item
+                class="rounded"
                 clickable
                 @click="animateScroll(0)"
                 href="#front-page-section"
@@ -31,6 +32,7 @@
             </div>
             <div class="cursor-pointer non-selectable">
               <q-item
+                class="rounded"
                 clickable
                 @click="animateScroll(0)"
                 href="#about-us-section"
@@ -47,7 +49,7 @@
               </q-item>
             </div>
             <div class="cursor-pointer non-selectable">
-              <q-item clickable v-ripple>
+              <q-item class="rounded" clickable v-ripple>
                 <q-item-section avatar>
                   <q-avatar
                     color="primary"
@@ -191,6 +193,7 @@
               </q-menu>
             </div>
             <q-item
+              class="rounded"
               clickable
               v-ripple
               @click="animateScroll(1920)"
