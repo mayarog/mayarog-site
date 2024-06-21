@@ -1,5 +1,9 @@
 <template>
-  <div class="row q-mt-xl footer-bar text-white font-customization">
+  <div
+    class="row q-mt-xl footer-bar text-white font-customization"
+    v-motion-slide-visible-once-bottom
+    :duration="500"
+  >
     <div class="col-xs-12 col-sm-12 col-md-4 q-mt-xl text-center">
       <p>Área do Cliente | Termos de Uso | Política de Privacidade</p>
     </div>
