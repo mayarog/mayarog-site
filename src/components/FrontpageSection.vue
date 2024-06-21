@@ -124,35 +124,48 @@ function sendEmail() {
           {{ slogan }}
         </h4>
       </div>
-      <div class="flex flex-center" :duration="500">
-        <q-btn
-          v-motion
-          :initial="{ opacity: 0, y: 100 }"
-          :enter="{ opacity: 1, y: 0, scale: 1.1 }"
-          :hovered="{ scale: 1.2 }"
-          size="22px"
-          class="q-px-lg q-py-sm"
-          rounded
-          color="primary"
-          text-color="dark"
-          label="Contato"
-        />
-        <!-- <div class="q-gutter-sm">
-                <q-btn
-                  icon="mdi-whatsapp"
-                  color="primary"
-                  rounded
-                  @click="sendWhatsappMessage"
-                  label="Contato por WhatsApp"
-                />
-                <q-btn
-                  icon="mdi-instagram"
-                  color="primary"
-                  rounded
-                  @click="toInstagram"
-                  label="Siga-nos no Instagram"
-                />
-              </div> -->
+      <!-- style="max-width: 400px" -->
+      <div class="row">
+        <div
+          class="col-xs-12 col-md-6"
+          style="display: flex; justify-content: center"
+        >
+          <div class="q-pa-md">
+            <q-btn
+              v-motion
+              :initial="{ opacity: 0, y: 100 }"
+              :enter="{ opacity: 1, y: 0, scale: 1.1 }"
+              :hovered="{ scale: 1.2 }"
+              size="2vh"
+              class="q-px-xl"
+              rounded
+              color="primary"
+              text-color="dark"
+              label="Contato"
+              href="#contact"
+            />
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-md-6"
+          style="display: flex; justify-content: center"
+        >
+          <div class="q-pa-md">
+            <q-btn
+              v-motion
+              :initial="{ opacity: 0, y: 100 }"
+              :enter="{ opacity: 1, y: 0, scale: 1.1 }"
+              :hovered="{ scale: 1.2 }"
+              size="2vh"
+              class="q-px-xl"
+              rounded
+              color="primary"
+              text-color="dark"
+              label="Serviços"
+              href="#services"
+            />
+          </div>
+        </div>
       </div>
     </div>
     <div
