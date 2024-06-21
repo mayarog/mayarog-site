@@ -1,11 +1,12 @@
 <template>
   <q-page>
     <q-scroll-area ref="scrollAreaRef" style="height: 91vh">
-      <FrontpageSection id="front-page-section" />
-      <AboutUsSection id="about-us-section" class="q-pa-lg" />
-      <ServiceSection id="service-section" />
-      <ContactSection id="contact-section" />
-      <FooterSection id="footer-section" />
+      <FrontpageSection id="frontpage" />
+      <AboutUsSection id="aboutus" />
+      <ServiceSection id="services" />
+      <ContactSection id="contact" />
+      <MediasSection id="medias" />
+      <FooterSection id="footer" />
     </q-scroll-area>
     <!-- <q-page-scroller
       position="bottom-right"
@@ -22,6 +23,7 @@
         fab
         icon="mdi-arrow-up"
         color="primary"
+        class="q-mb-sm"
         @click="animateScroll(0)"
       ></q-btn>
     </q-page-sticky>
@@ -35,6 +37,7 @@ import AboutUsSection from "src/components/AboutUsSection.vue";
 import FrontpageSection from "src/components/FrontpageSection.vue";
 import ServiceSection from "src/components/ServiceSection.vue";
 import ContactSection from "src/components/ContactSection.vue";
+import MediasSection from "src/components/MediasSection.vue";
 import FooterSection from "src/components/FooterSection.vue";
 
 const scrollAreaRef = ref(null);
