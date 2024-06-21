@@ -17,7 +17,7 @@
                 class="rounded"
                 clickable
                 @click="animateScroll(0)"
-                href="#front-page-section"
+                href="#frontpage"
                 v-ripple
               >
                 <q-item-section avatar>
@@ -35,7 +35,7 @@
                 class="rounded"
                 clickable
                 @click="animateScroll(0)"
-                href="#about-us-section"
+                href="#aboutus"
                 v-ripple
               >
                 <q-item-section avatar>
@@ -197,7 +197,7 @@
               clickable
               v-ripple
               @click="animateScroll(1920)"
-              href="#contact-section"
+              href="#contact"
             >
               <q-item-section avatar>
                 <q-avatar
