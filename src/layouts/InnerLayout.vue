@@ -1,16 +1,19 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="shadow-2 rounded-borders">
-    <TheHeader>
+    <HeaderSection>
       <template v-slot:footerToolbar>
         <q-toolbar inset>
           <q-breadcrumbs active-color="white" style="font-size: 16px">
             <q-breadcrumbs-el label="Home" icon="home"></q-breadcrumbs-el>
-            <q-breadcrumbs-el label="Serviços" icon="widgets"></q-breadcrumbs-el>
+            <q-breadcrumbs-el
+              label="Serviços"
+              icon="widgets"
+            ></q-breadcrumbs-el>
             <q-breadcrumbs-el label="Toolbar"></q-breadcrumbs-el>
           </q-breadcrumbs>
         </q-toolbar>
       </template>
-    </TheHeader>
+    </HeaderSection>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -18,11 +21,11 @@
 </template>
 <script>
 import { defineComponent, ref } from "vue";
-import TheHeader from "src/components/TheHeader.vue";
+import HeaderSection from "src/components/HeaderSection.vue";
 export default defineComponent({
   name: "MainLayout",
   components: {
-    TheHeader
+    HeaderSection,
   },
 
   setup() {
@@ -32,8 +35,8 @@ export default defineComponent({
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
-      }
+      },
     };
-  }
+  },
 });
 </script>

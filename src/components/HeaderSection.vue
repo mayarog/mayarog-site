@@ -1,5 +1,5 @@
 <template>
-  <q-header class="bg-dark">
+  <q-header reveal class="bg-dark">
     <div class="row">
       <slot name="headerToolbar"></slot>
       <q-toolbar class="q-my-md">
@@ -164,20 +164,20 @@
                     <q-menu anchor="top end" self="top start">
                       <q-list class="bg-black text-white">
                         <q-item clickable>
-                          <q-item-section
-                            >Criação de Artes Digitais</q-item-section
-                          >
+                          <q-item-section>
+                            Criação de Artes Digitais
+                          </q-item-section>
                         </q-item>
                         <q-item clickable>
-                          <q-item-section>Identidade Visual</q-item-section>
+                          <q-item-section> Identidade Visual </q-item-section>
                         </q-item>
                         <q-item clickable>
                           <q-item-section>Criação de Logomarcas</q-item-section>
                         </q-item>
                         <q-item clickable>
-                          <q-item-section
-                            >Artes para Midias Sociais</q-item-section
-                          >
+                          <q-item-section>
+                            Artes para Midias Sociais
+                          </q-item-section>
                         </q-item>
                         <q-item clickable>
                           <q-item-section>Edição de Imagens</q-item-section>
