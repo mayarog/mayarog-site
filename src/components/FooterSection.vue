@@ -37,7 +37,7 @@ defineOptions({ name: "FooterSection" });
 @media only screen and (max-width: 500px) {
   .xs-p-customize {
     padding-top: -40px;
-    padding-bottom: 22px;
+    padding-bottom: 42px;
   }
 }
 </style>
