@@ -5,7 +5,10 @@
     :duration="500"
   >
     <div class="col-xs-12 col-sm-12 col-md-4 q-mt-xl text-center">
-      <p>Área do Cliente | Termos de Uso | Política de Privacidade</p>
+      <p>
+        <a>Área do Cliente</a> | <a @click="useTermsDialog">Termos de Uso</a> |
+        <a @click="priacyPolicy">Política de Privacidade</a>
+      </p>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-4 mt-n10 flex justify-center">
       <MayarogLogo size="60" />
@@ -19,11 +22,43 @@
 </template>
 
 <script setup>
+import { defineOptions } from "vue";
+import { useTermsText, privacyPolicyText } from "src/constants/Texts";
+import { useQuasar } from "quasar";
+
 import MayarogLogo from "./MayarogLogo.vue";
+import DialogCard from "./DialogCard.vue";
+
 defineOptions({ name: "FooterSection" });
+
+const $q = useQuasar();
+
+function useTermsDialog() {
+  $q.dialog({
+    component: DialogCard,
+    componentProps: {
+      title: "Termos e condições de uso do site Mayarog",
+      message: useTermsText,
+      html: true,
+    },
+  });
+}
+function priacyPolicy() {
+  $q.dialog({
+    component: DialogCard,
+    componentProps: {
+      title: "POLÍTICA DE PRIVACIDADE DO SITE MAYAROG",
+      message: privacyPolicyText,
+      html: true,
+    },
+  });
+}
 </script>
 
 <style>
+a {
+  text-decoration: none;
+}
 .footer-bar {
   background-color: #0f1819;
   min-height: 130px;
