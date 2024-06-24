@@ -12,10 +12,11 @@
       position="bottom-right"
       :scroll-offset="150"
       :offset="[18, 18]"
-    > -->
+      > -->
     <q-page-sticky
       shrink
       position="bottom-right"
+      class="button--position"
       :offset="[18, 18]"
       :scroll-offset="1500"
     >
@@ -46,3 +47,9 @@ function animateScroll(value) {
   position.value = Math.floor(Math.random() * 1001) * 20;
 }
 </script>
+
+<style>
+.button--position {
+  bottom: 6vw;
+}
+</style>
