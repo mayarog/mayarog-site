@@ -8,26 +8,20 @@
       <MediasSection id="medias" />
       <FooterSection id="footer" />
     </q-scroll-area>
+    <q-page-sticky :offset="[18, 120]">
+      <q-btn
+        round
+        flat
+        icon="mdi-arrow-up"
+        color="primary"
+        @click="animateScroll(0)"
+      ></q-btn>
+    </q-page-sticky>
     <!-- <q-page-scroller
       position="bottom-right"
       :scroll-offset="150"
       :offset="[18, 18]"
       > -->
-    <q-page-sticky
-      shrink
-      position="bottom-right"
-      class="button--position"
-      :offset="[18, 18]"
-      :scroll-offset="1500"
-    >
-      <q-btn
-        fab
-        icon="mdi-arrow-up"
-        color="primary"
-        class="q-mb-sm"
-        @click="animateScroll(0)"
-      ></q-btn>
-    </q-page-sticky>
     <!-- </q-page-scroller> -->
   </q-page>
 </template>
@@ -47,9 +41,3 @@ function animateScroll(value) {
   position.value = Math.floor(Math.random() * 1001) * 20;
 }
 </script>
-
-<style>
-.button--position {
-  bottom: 6vw;
-}
-</style>
