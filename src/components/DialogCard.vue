@@ -1,6 +1,15 @@
 <template>
-  <q-dialog ref="dialogRef" @hide="onDialogHide" full-width>
-    <q-card class="q-dialog-plugin">
+  <q-dialog
+    ref="dialogRef"
+    @hide="onDialogHide"
+    class="rounded"
+    :full-width="fullWidth ?? false"
+    :style="{ width: props.width ?? 'auto' }"
+  >
+    <q-card
+      class="q-dialog-plugin rounded"
+      :style="{ width: props.width ?? 'auto' }"
+    >
       <q-card-section class="text-h4">
         {{ props.title }}
       </q-card-section>
@@ -10,17 +19,17 @@
       <q-card-section class="text-left" v-if="!props.html">
         {{ props.message }}
       </q-card-section>
-      <q-card-actions align="right" class="q-pa-md">
+      <q-card-actions align="left" class="q-pa-md">
         <q-btn
           rounded
-          class="q-px-xl"
           color="primary"
           :label="props.confirmLabel ?? 'OK'"
           @click="onOKClick"
         />
         <q-btn
-          color="primary"
-          flat
+          rounded
+          color="warning"
+          text-color="dark"
           :label="props.cancelLabel ?? 'Cancel'"
           @click="onCancelClick"
         />
@@ -38,6 +47,8 @@ const props = defineProps({
   html: Boolean,
   confirmLabel: String,
   cancelLabel: String,
+  fullWidth: Boolean,
+  width: String,
 });
 
 defineEmits([...useDialogPluginComponent.emits]);
@@ -53,3 +64,12 @@ function onCancelClick() {
   onDialogCancel();
 }
 </script>
+
+<style>
+.q-dialog__inner--minimized > div {
+  max-width: 1000px;
+}
+.q-dialog__inner--minimized > div {
+  max-height: calc(100vh - 142px);
+}
+</style>
