@@ -105,7 +105,7 @@ function sendEmail() {
         </div>
       </q-carousel-slide>
     </q-carousel> -->
-  <div class="row bg-dark q-pt-xl">
+  <div class="row bg-dark q-pt-xl q-my-xl">
     <div class="col-lg-6 col-sm-12 q-pa-lg">
       <div class="flex flex-start">
         <div
