@@ -40,6 +40,8 @@ function useTermsDialog() {
       title: "Termos e condições de uso do site Mayarog",
       message: useTermsText,
       html: true,
+      width: "1000px",
+      confirmLabel: "Aceitar",
     },
   });
 }
@@ -50,6 +52,8 @@ function priacyPolicy() {
       title: "POLÍTICA DE PRIVACIDADE DO SITE MAYAROG",
       message: privacyPolicyText,
       html: true,
+      width: "1000px",
+      confirmLabel: "Aceitar",
     },
   });
 }
