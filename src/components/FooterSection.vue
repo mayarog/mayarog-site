@@ -4,7 +4,7 @@
     v-motion-slide-visible-once-bottom
     :duration="500"
   >
-    <div class="col-xs-12 col-sm-12 col-md-4 q-mt-xl text-center">
+    <div class="col-xs-12 col-sm-12 col-md-4 q-mt-xl text-center links-section">
       <p>
         <a>Área do Cliente</a> | <a @click="useTermsDialog">Termos de Uso</a> |
         <a @click="priacyPolicy">Política de Privacidade</a>
@@ -67,6 +67,10 @@ a {
 
 .mt-n10 {
   margin-top: -20px;
+}
+
+.links-section a:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 500px) {
