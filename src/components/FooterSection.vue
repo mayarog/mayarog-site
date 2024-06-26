@@ -6,7 +6,8 @@
   >
     <div class="col-xs-12 col-sm-12 col-md-4 q-mt-xl text-center links-section">
       <p>
-        <a>Área do Cliente</a> | <a @click="useTermsDialog">Termos de Uso</a> |
+        <a href="/auth/login">Área do Cliente</a> |
+        <a @click="useTermsDialog">Termos de Uso</a> |
         <a @click="priacyPolicy">Política de Privacidade</a>
       </p>
     </div>
