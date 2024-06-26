@@ -4,32 +4,19 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
+      { path: '', component: () => import('pages/IndexPage.vue') },
+      { path: 'em-construcao', component: () => import('pages/UnderConstruction.vue') },
+      { path: 'desenvolvimento-sistemas', component: () => import('pages/UnderConstruction.vue') },
+      { path: 'auth-login', component: () => import('pages/LoginPage.vue') }
     ]
   },
   {
     path: '/consultoria',
     component: () => import('layouts/InnerLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/ConsultingPage.vue') }
-      // { path: '', component: () => import('pages/UnderConstruction.vue') }
+      { path: 'info', component: () => import('pages/ConsultingPage.vue') }
     ]
   },
-  {
-    path: '/desenvolvimento-sistemas',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/UnderConstruction.vue') }
-    ]
-  },
-  {
-    path: '/em-construcao',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/UnderConstruction.vue') }
-    ]
-  },
-
   // Always leave this as last one,
   // but you can also remove it
   {
