@@ -23,6 +23,11 @@ body {
   border-radius: 30px;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 @media screen and (max-width: 430px) {
   .text-h1 {
     line-height: normal;

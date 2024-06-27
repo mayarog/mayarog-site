@@ -61,9 +61,6 @@ function priacyPolicy() {
 </script>
 
 <style>
-a {
-  text-decoration: none;
-}
 .footer-bar {
   background-color: #0f1819;
   min-height: 130px;
