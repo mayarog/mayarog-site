@@ -1,13 +1,21 @@
 
 const routes = [
   {
+    path: "/auth",
+    component: () => import('layouts/AuthLayout.vue'),
+    children: [
+      { path: 'login', name: 'auth-login', component: () => import('src/pages/AuthLoginPage.vue') },
+      { path: 'register', name: 'auth-register', component: () => import('src/pages/AuthRegisterPage.vue') },
+      { path: 'esqueceu-senha', name: 'esqueceu-senha', component: () => import('pages/UnderConstruction.vue') }
+    ]
+  },
+  {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') },
-      { path: 'em-construcao', component: () => import('pages/UnderConstruction.vue') },
-      { path: 'desenvolvimento-sistemas', component: () => import('pages/UnderConstruction.vue') },
-      { path: 'auth-login', component: () => import('pages/LoginPage.vue') }
+      { path: '', name: 'home', component: () => import('pages/IndexPage.vue') },
+      { path: 'em-construcao', name: 'em-construcao', component: () => import('pages/UnderConstruction.vue') },
+      { path: 'desenvolvimento-sistemas', name: 'desenvolvimento-sistemas', component: () => import('pages/UnderConstruction.vue') },
     ]
   },
   {
