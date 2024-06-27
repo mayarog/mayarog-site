@@ -1,90 +1,86 @@
 <template>
-  <q-page-container id="contact" class="bg-black text-primary">
-    <div class="row bg-black text-primary q-pb-lg text-center">
-      <div class="col-xs-12 col-sm-12 col-md-6 q-pa-md">
-        <div class="flex flex-center">
-          <div class="col-md-12 text-white">
-            <h4 class="text-h4">
-              Siga-nos nas Redes Sociais
-              <br />
-            </h4>
-            <small class="text-h6">
-              Acompanhe nossas redes sociais para saber mais novidades, <br />
-              Assine nossa newsletter para receber lançamentos e promoções da
-              Mayarog
-            </small>
-            <div class="col-md-4">
-              <q-input
-                rounded
-                color="primary"
-                outlined
-                label="Assinar newsletter"
-                placeholder="Digite seu e-mail"
-              ></q-input>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-6 self-center">
-        <div class="q-pa-md flex flex-center">
-          <div class="col-md-12 text-accent">
-            <div class="q-pa-sm">
-              <q-btn
-                size="2em"
-                dense
-                color="primary"
-                round
-                icon="mdi-whatsapp"
-                class="q-ml-md"
-              />
-              <q-btn
-                size="2em"
-                dense
-                color="primary"
-                round
-                icon="mdi-facebook"
-                class="q-ml-md"
-              />
-              <q-btn
-                size="2em"
-                dense
-                color="primary"
-                round
-                icon="mdi-instagram"
-                class="q-ml-md"
-              />
-              <q-btn
-                size="2em"
-                dense
-                color="primary"
-                round
-                icon="mdi-email"
-                class="q-ml-md"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+  <div
+    class="row q-mt-xl footer-bar text-white font-customization"
+    v-motion-slide-visible-once-bottom
+    :duration="500"
+  >
+    <div class="col-xs-12 col-sm-12 col-md-4 q-mt-xl text-center links-section">
+      <p>
+        <a>Área do Cliente</a> | <a @click="useTermsDialog">Termos de Uso</a> |
+        <a @click="priacyPolicy">Política de Privacidade</a>
+      </p>
     </div>
-    <div class="row">
-      <div
-        class="col-xs-12 col-sm-12 col-md-6 q-pa-md text-white text-left bg-accent"
-      >
-        Área do Cliente | Termos de Uso | Política de Privacidade
-      </div>
-      <div
-        class="col-xs-12 col-sm-12 col-md-6 q-pa-md text-white text-right bg-accent"
-      >
-        Copyright © 2023 Mayarog - Todos os direitos reservados
-      </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 mt-n10 flex justify-center">
+      <MayarogLogo size="60" />
     </div>
-  </q-page-container>
+    <div
+      class="col-xs-12 col-sm-12 col-md-4 q-mt-xl q-pr-md text-center xs-p-customize"
+    >
+      <p>Copyright © 2023 Mayarog - Todos os direitos reservados</p>
+    </div>
+  </div>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
+import { defineOptions } from "vue";
+import { useTermsText, privacyPolicyText } from "src/constants/Texts";
+import { useQuasar } from "quasar";
 
-export default defineComponent({
-  name: "FooterSection"
-});
+import MayarogLogo from "./MayarogLogo.vue";
+import DialogCard from "./DialogCard.vue";
+
+defineOptions({ name: "FooterSection" });
+
+const $q = useQuasar();
+
+function useTermsDialog() {
+  $q.dialog({
+    component: DialogCard,
+    componentProps: {
+      title: "Termos e condições de uso do site Mayarog",
+      message: useTermsText,
+      html: true,
+      width: "1000px",
+      confirmLabel: "Aceitar",
+    },
+  });
+}
+function priacyPolicy() {
+  $q.dialog({
+    component: DialogCard,
+    componentProps: {
+      title: "POLÍTICA DE PRIVACIDADE DO SITE MAYAROG",
+      message: privacyPolicyText,
+      html: true,
+      width: "1000px",
+      confirmLabel: "Aceitar",
+    },
+  });
+}
 </script>
+
+<style>
+a {
+  text-decoration: none;
+}
+.footer-bar {
+  background-color: #0f1819;
+  min-height: 130px;
+  height: fit-content;
+}
+
+.mt-n10 {
+  margin-top: -20px;
+}
+
+.links-section a:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  .xs-p-customize {
+    padding-top: -40px;
+    padding-bottom: 42px;
+  }
+}
+</style>

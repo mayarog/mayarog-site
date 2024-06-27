@@ -1,4 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
 // app global css in SCSS form
 body {
   overflow: hidden;
+}
+
+.font--playfair-display {
+  font-family: "Playfair Display", serif;
+}
+.font-weight-900 {
+  font-weight: 900;
+}
+
+.rounded-full {
+  border-radius: 50%;
+}
+.absolute {
+  position: absolute;
+}
+
+.rounded {
+  border-radius: 30px;
+}
+
+@media screen and (max-width: 430px) {
+  .text-h1 {
+    line-height: normal;
+    letter-spacing: 2px;
+    font-size: 4rem;
+  }
+  .text-h2 {
+    line-height: normal;
+    font-size: 2rem;
+  }
+  .text-h4 {
+    line-height: normal;
+    font-size: 1.4rem;
+  }
 }
