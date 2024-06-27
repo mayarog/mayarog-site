@@ -7,7 +7,10 @@
           <MayarogLogo />
         </q-toolbar-title>
         <!-- Remove hidden to make buttons appear -->
-        <div class="flex justify-end q-gutter-y-md desktop-only">
+        <div
+          v-if="!props.hideButtons"
+          class="flex justify-end q-gutter-y-md desktop-only"
+        >
           <q-bar
             style="min-width: 500px"
             class="text-white rounded-borders bg-dark"
@@ -17,7 +20,7 @@
                 class="rounded"
                 clickable
                 @click="animateScroll(0)"
-                href="#frontpage"
+                href="/#frontpage"
                 v-ripple
               >
                 <q-item-section avatar>
@@ -35,7 +38,7 @@
                 class="rounded"
                 clickable
                 @click="animateScroll(0)"
-                href="#aboutus"
+                href="/#aboutus"
                 v-ripple
               >
                 <q-item-section avatar>
@@ -197,7 +200,7 @@
               clickable
               v-ripple
               @click="animateScroll(1920)"
-              href="#contact"
+              href="/#contact"
             >
               <q-item-section avatar>
                 <q-avatar
@@ -218,4 +221,7 @@
 
 <script setup>
 import MayarogLogo from "components/MayarogLogo.vue";
+const props = defineProps({
+  hideButtons: Boolean,
+});
 </script>
