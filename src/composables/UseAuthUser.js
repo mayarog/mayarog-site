@@ -1,12 +1,15 @@
-import { ref } from 'vue';
-import useSupabase from 'boot/supabase';
+import { ref } from "vue";
+import useSupabase from "boot/supabase";
 
 const user = ref(null);
 export default function useAuthUser() {
   const { supabase } = useSupabase();
 
   const login = async ({ email, password }) => {
-    const { user, error } = await supabase.auth.signInWithPassword({ email, password });
+    const { user, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
     if (error) throw error;
     return user;
   };
@@ -24,7 +27,7 @@ export default function useAuthUser() {
 
   const isLoggedIn = async () => {
     return !!user.value;
-  }
+  };
 
   const register = async ({ email, password, ...meta }) => {
     const { user, error } = await supabase.auth.signUp(
@@ -32,7 +35,7 @@ export default function useAuthUser() {
       {
         data: meta,
         redirectTo: `${window.location.origin}/me?fromEmail=registrationConfirmation`,
-      },
+      }
     );
     if (error) throw error;
     return user;
@@ -45,7 +48,9 @@ export default function useAuthUser() {
   };
 
   const sendPasswordRestEmail = async (email) => {
-    const { user, error } = await supabase.auth.api.resetPasswordForEmail(email);
+    const { user, error } = await supabase.auth.api.resetPasswordForEmail(
+      email
+    );
     if (error) throw error;
     return user;
   };
@@ -59,5 +64,5 @@ export default function useAuthUser() {
     register,
     update,
     sendPasswordRestEmail,
-  }
-};
+  };
+}
