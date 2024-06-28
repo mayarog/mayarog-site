@@ -77,7 +77,8 @@ function sendEmail() {
 </script>
 
 <template>
-  <!-- <q-carousel
+  <q-page-container class="q-pt-xl">
+    <!-- <q-carousel
       animated
       arrows
       autoplay
@@ -105,86 +106,84 @@ function sendEmail() {
         </div>
       </q-carousel-slide>
     </q-carousel> -->
-  <div class="row bg-dark q-pt-xl q-my-xl">
-    <div class="col-lg-6 col-sm-12 q-pa-lg">
-      <div class="flex flex-start">
-        <div
-          class="q-gutter-xs"
-          v-motion-slide-visible-once-left
+    <div class="row bg-dark q-pt-xl q-ma-lg">
+      <div class="col-lg-6 col-sm-12">
+        <div class="flex flex-start">
+          <div
+            class="q-gutter-xs"
+            v-motion-slide-visible-once-left
+            :duration="500"
+          >
+            <p class="text-h2 text-white">
+              Soluções Web &<br class="mobile-hide" />
+              Consultoria em T.I
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-start" v-motion-fade :delay="200" :duration="500">
+          <h4 class="text-h4 text-white">
+            {{ slogan }}
+          </h4>
+        </div>
+        <!-- style="max-width: 400px" -->
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <div class="q-pa-md">
+              <q-btn
+                v-motion
+                :initial="{ opacity: 0, y: 100 }"
+                :enter="{ opacity: 1, y: 0, scale: 1.1 }"
+                :hovered="{ scale: 1.2 }"
+                size="2vh"
+                class="q-px-xl"
+                rounded
+                color="primary"
+                text-color="dark"
+                label="Contato"
+                href="#contact"
+              />
+            </div>
+          </div>
+          <div
+            class="col-xs-12 col-md-6"
+            style="display: flex; justify-content: center"
+          >
+            <div class="q-pa-md">
+              <q-btn
+                v-motion
+                :initial="{ opacity: 0, y: 100 }"
+                :enter="{ opacity: 1, y: 0, scale: 1.1 }"
+                :hovered="{ scale: 1.2 }"
+                size="2vh"
+                class="q-px-xl"
+                rounded
+                color="primary"
+                text-color="dark"
+                label="Serviços"
+                href="#services"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mobile-hide col-md-12 col-xs-12 col-lg-6 q-mt-lg flex flex-center"
+      >
+        <q-img
+          v-motion-slide-visible-once-right
+          :delay="200"
           :duration="500"
-        >
-          <h2 class="text-h2 text-white">
-            Soluções Web &<br class="mobile-hide" />
-            Consultoria em T.I
-          </h2>
-        </div>
-      </div>
-      <div class="flex flex-start" v-motion-fade :delay="200" :duration="500">
-        <h4 class="text-h4 text-white">
-          {{ slogan }}
-        </h4>
-      </div>
-      <!-- style="max-width: 400px" -->
-      <div class="row">
-        <div
-          class="col-xs-12 col-md-6"
-          style="display: flex; justify-content: center"
-        >
-          <div class="q-pa-md">
-            <q-btn
-              v-motion
-              :initial="{ opacity: 0, y: 100 }"
-              :enter="{ opacity: 1, y: 0, scale: 1.1 }"
-              :hovered="{ scale: 1.2 }"
-              size="2vh"
-              class="q-px-xl"
-              rounded
-              color="primary"
-              text-color="dark"
-              label="Contato"
-              href="#contact"
-            />
-          </div>
-        </div>
-        <div
-          class="col-xs-12 col-md-6"
-          style="display: flex; justify-content: center"
-        >
-          <div class="q-pa-md">
-            <q-btn
-              v-motion
-              :initial="{ opacity: 0, y: 100 }"
-              :enter="{ opacity: 1, y: 0, scale: 1.1 }"
-              :hovered="{ scale: 1.2 }"
-              size="2vh"
-              class="q-px-xl"
-              rounded
-              color="primary"
-              text-color="dark"
-              label="Serviços"
-              href="#services"
-            />
-          </div>
-        </div>
+          class="rounded"
+          rounded
+          src="https://static.canva.com/web/images/87e22a62965f141aa08e93699b0b3527.jpg"
+          width="24vw"
+          height="24vw"
+          style="z-index: 1; min-width: 420px; min-height: 420px"
+        />
+        <div class="back-highlight rounded" v-motion-fade :delay="700"></div>
       </div>
     </div>
-    <div
-      class="mobile-hide col-md-12 col-xs-12 col-lg-6 q-mt-lg flex flex-center"
-    >
-      <q-img
-        v-motion-slide-visible-once-right
-        :delay="200"
-        :duration="500"
-        class="rounded"
-        rounded
-        src="https://static.canva.com/web/images/87e22a62965f141aa08e93699b0b3527.jpg"
-        width="24vw"
-        height="24vw"
-        style="z-index: 1; min-width: 420px; min-height: 420px"
-      />
-      <div class="back-highlight rounded" v-motion-fade :delay="700"></div>
-    </div>
-  </div>
+  </q-page-container>
 </template>
 
 <style>
