@@ -6,9 +6,9 @@
   >
     <div class="col-xs-12 col-sm-12 col-md-4 q-mt-xl text-center links-section">
       <p>
-        <a href="/auth/login">Área do Cliente</a> |
+        <RouterLink :to="{ name: 'auth-login' }">Área do Cliente</RouterLink> |
         <a @click="useTermsDialog">Termos de Uso</a> |
-        <a @click="priacyPolicy">Política de Privacidade</a>
+        <a @click="priacyPolicyDialog">Política de Privacidade</a>
       </p>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-4 mt-n10 flex justify-center">
@@ -46,7 +46,7 @@ function useTermsDialog() {
     },
   });
 }
-function priacyPolicy() {
+function priacyPolicyDialog() {
   $q.dialog({
     component: DialogCard,
     componentProps: {
