@@ -1,5 +1,5 @@
 <template>
-  <q-page-container class="bg-dark text-white text-center q-pa-lg">
+  <q-page-container class="bg-dark text-white text-center">
     <div
       class="row flex flex-center"
       v-motion-slide-visible-once-left
