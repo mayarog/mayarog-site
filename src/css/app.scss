@@ -28,6 +28,13 @@ a {
   color: white;
 }
 
+.q-input.q-field--rounded div.q-field__control input.q-placeholder {
+  margin-left: 10px;
+}
+.q-input.q-field--rounded div.q-field__control div.q-field__label {
+  padding-left: 12px;
+}
+
 @media screen and (max-width: 430px) {
   .text-h1 {
     line-height: normal;
