@@ -1,13 +1,15 @@
 <template>
   <q-page padding v-motion-slide-visible-once-bottom :duration="500">
-    <q-form @submit.prevent="handleRegister" class="row justify-center">
+    <div>
       <p class="col-12 text-h2 text-center text-primary font-customization">
         <strong>Área do cliente</strong>
       </p>
       <p class="col-12 text-h5 text-center">
         Preencha os campos para se cadastrar
       </p>
-      <div class="col-md-4 col-sm-6 col-xs-10">
+    </div>
+    <q-form @submit.prevent="handleRegister" class="row justify-center">
+      <div class="col-md-4 col-sm-6 col-xs-10 q-gutter-sm">
         <q-input
           rounded
           outlined
@@ -16,7 +18,11 @@
           color="primary"
           type="text"
           label="Nome"
-        />
+        >
+          <template #prepend>
+            <q-icon name="abc" />
+          </template>
+        </q-input>
         <q-input
           rounded
           outlined
@@ -26,7 +32,11 @@
           mask="## # ####-####"
           type="text"
           label="Telefone"
-        />
+        >
+          <template #prepend>
+            <q-icon name="phone" />
+          </template>
+        </q-input>
         <q-input
           rounded
           outlined
@@ -43,6 +53,7 @@
             <p v-else-if="form.email && suggestedProvider">
               Você quis dizer
               <strong
+                class="text-primary"
                 style="cursor: pointer"
                 @click="fixProvider(suggestedProvider)"
               >
@@ -50,6 +61,9 @@
               </strong>
               ?
             </p>
+          </template>
+          <template #prepend>
+            <q-icon name="abc" />
           </template>
         </q-input>
         <q-input
@@ -78,6 +92,9 @@
               :name="fields.password.isPwd ? 'visibility' : 'visibility_off'"
             />
           </template>
+          <template #prepend>
+            <q-icon name="password" />
+          </template>
         </q-input>
         <q-input
           rounded
@@ -99,29 +116,31 @@
               "
             />
           </template>
+          <template #prepend>
+            <q-icon name="password" />
+          </template>
         </q-input>
         <div class="row">
           <div class="col-6">
             <q-btn
               rounded
               style="width: fit-content"
-              class="text--dark"
+              class="text--dark q-pa-md text-bold"
               color="primary"
               text-color="dark"
               type="submit"
-            >
-              <strong>Cadastrar-se</strong>
-            </q-btn>
+              label="Cadastre-se"
+            />
           </div>
-          <div class="col-6 text-right">
-            <p class="text-h5 text-white">Já possui conta?</p>
+          <p class="col-6 text-right text-body1 text-white">
+            Já possui conta? <br />
             <router-link
-              style="text-decoration: none"
+              class="text-body1 text-primary"
               :to="{ name: 'auth-login' }"
             >
-              <strong class="text-h5 text-primary">Clique aqui</strong>
+              Clique aqui
             </router-link>
-          </div>
+          </p>
         </div>
       </div>
     </q-form>
