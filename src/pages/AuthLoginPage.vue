@@ -1,75 +1,73 @@
 <template>
-  <div class="content" v-motion-slide-visible-once-bottom :duration="500">
-    <div>
-      <q-form @submit.prevent="handleLogin">
-        <div>
-          <div class="row q-pa-md text-center">
-            <div class="col-12">
-              <h1 class="text-h1 text-primary font-customization">
-                Área do cliente
-              </h1>
-            </div>
-            <div class="col-12">
-              <h4 class="text-h4">Digite o seu e-mail e senha para acessar</h4>
-            </div>
-          </div>
-
-          <div class="row inputs-container q-gutter-y-md">
-            <div class="col-12">
-              <q-input
-                rounded
-                outlined
-                v-model="form.email"
-                color="primary"
-                type="email"
-                label="Email"
-              />
-            </div>
-            <div class="col-12">
-              <q-input
-                rounded
-                outlined
-                v-model="form.password"
-                color="primary"
-                type="password"
-                label="Senha"
-              />
-            </div>
-            <div class="col-12 text-center">
-              <p class="text-h6">
-                <strong> Não possui acesso?</strong>
-                <router-link :to="{ name: 'auth-register' }">
-                  <strong class="text-primary"> Clique aqui</strong>
-                </router-link>
-              </p>
-            </div>
-          </div>
-        </div>
-
+  <q-page padding v-motion-slide-visible-once-bottom :duration="500">
+    <div class="q-pb-lg q-gutter-lg">
+      <p class="col-12 text-h2 text-center text-primary font-customization">
+        Área do cliente
+      </p>
+      <p class="col-12 text-h5 text-center">
+        Digite o seu e-mail e senha para acessar
+      </p>
+    </div>
+    <q-form
+      @submit.prevent="handleLogin"
+      class="row justify-center q-gutter-md"
+    >
+      <div class="col-md-4 col-sm-6 col-xs-10 q-gutter-md">
+        <q-input
+          rounded
+          outlined
+          v-model="form.email"
+          color="primary"
+          type="email"
+          label="Email"
+        >
+          <template #prepend>
+            <q-icon name="abc" />
+          </template>
+        </q-input>
+        <q-input
+          rounded
+          outlined
+          v-model="form.password"
+          color="primary"
+          type="password"
+          label="Senha"
+        >
+          <template #prepend>
+            <q-icon name="password" />
+          </template>
+        </q-input>
+        <p class="text-body1 text-center">
+          Não possui acesso? <br class="mobile-only" />
+          <router-link :to="{ name: 'auth-register' }">
+            <span class="text-primary"> Clique aqui</span>
+          </router-link>
+        </p>
         <div class="row">
-          <div class="col-6 q-pa-md q-gutter-lg">
+          <div class="col-6">
             <q-btn
               rounded
               style="width: 130px"
-              class="text--dark q-py-sm q-px-xl"
+              class="text--dark text-bold q-pa-md q-mt-sm"
               color="primary"
               text-color="dark"
               type="submit"
+              label="Logar"
+            />
+          </div>
+          <p class="col-6 q-mt-sm text-right justify-center q-gutter-xs">
+            Esqueceu sua senha? <br />
+            <router-link
+              class="text-body1 text-primary"
+              :to="{ name: 'esqueceu-senha' }"
             >
-              <strong class="text-h6">Logar</strong>
-            </q-btn>
-          </div>
-          <div class="col-6 q-mt-sm text-right">
-            <strong class="text-h6 text-white">Esqueceu sua senha?</strong
-            ><br />
-            <router-link :to="{ name: 'esqueceu-senha' }">
-              <strong class="text-h6 text-primary">Clique aqui</strong>
+              Clique aqui
             </router-link>
-          </div>
+          </p>
         </div>
-      </q-form>
-    </div>
-  </div>
+      </div>
+    </q-form>
+  </q-page>
 </template>
 
 <script setup>
@@ -97,24 +95,4 @@ async function handleLogin() {
 }
 </script>
 
-<style scoped>
-.inputs-container {
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.inputs-container div {
-  max-width: 600px;
-}
-
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.content > div {
-  width: 650px;
-}
-</style>
+<style scoped></style>
