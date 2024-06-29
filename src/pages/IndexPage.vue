@@ -8,7 +8,7 @@
       <MediasSection id="medias" />
       <FooterSection id="footer" />
     </q-scroll-area>
-    <q-page-sticky :offset="[18, 120]">
+    <q-page-sticky :offset="[18, 18]">
       <q-btn
         round
         flat
@@ -17,12 +17,6 @@
         @click="animateScroll(0)"
       ></q-btn>
     </q-page-sticky>
-    <!-- <q-page-scroller
-      position="bottom-right"
-      :scroll-offset="150"
-      :offset="[18, 18]"
-      > -->
-    <!-- </q-page-scroller> -->
   </q-page>
 </template>
 
