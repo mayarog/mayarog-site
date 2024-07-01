@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, defineEmits } from "vue";
 
 const props = defineProps({
   value: {
@@ -41,8 +41,15 @@ const props = defineProps({
   rules: {
     type: Array,
     required: false,
+    default: () => [
+      (value) => !!value || "O e-mail é obrigatório",
+      (value) =>
+        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) ||
+        "Email inválido",
+    ],
   },
 });
+const emit = defineEmits(["change:value"]);
 
 const localValue = ref(props.value);
 
@@ -69,5 +76,6 @@ function fixProvider(value) {
   if (!localValue.value) return;
   const provider = localValue.value.split("@")[1].split(".")[0];
   localValue.value = localValue.value.replace(provider, value);
+  emit("update:value", localValue.value);
 }
 </script>
