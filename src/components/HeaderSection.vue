@@ -213,6 +213,7 @@
             </q-item>
           </q-bar>
         </div>
+        <slot name="toolbar-customactions"></slot>
       </q-toolbar>
       <slot name="footerToolbar"></slot>
     </div>
