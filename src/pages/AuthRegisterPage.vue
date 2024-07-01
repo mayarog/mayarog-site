@@ -37,35 +37,7 @@
             <q-icon name="phone" />
           </template>
         </q-input>
-        <q-input
-          rounded
-          outlined
-          debounce="1000"
-          v-model="form.email"
-          @change="updateEmail"
-          :rules="rules.email"
-          color="primary"
-          type="email"
-          label="Email"
-        >
-          <template #hint>
-            <p v-if="isProviderCorrect"></p>
-            <p v-else-if="form.email && suggestedProvider">
-              Você quis dizer
-              <strong
-                class="text-primary"
-                style="cursor: pointer"
-                @click="fixProvider(suggestedProvider)"
-              >
-                {{ suggestedProvider }}
-              </strong>
-              ?
-            </p>
-          </template>
-          <template #prepend>
-            <q-icon name="abc" />
-          </template>
-        </q-input>
+        <EmailInput :value="form.email" :rules="rules.email" />
         <q-input
           rounded
           outlined
@@ -148,8 +120,9 @@
 </template>
 
 <script setup>
-import { reactive, ref, computed } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
+import EmailInput from "components/EmailInput.vue";
 import useAuthUser from "src/composables/UseAuthUser";
 
 const $router = useRouter();
@@ -185,31 +158,6 @@ async function handleRegister() {
   } catch (error) {
     alert(error.message);
   }
-}
-
-const providers = ["gmail", "yahoo", "hotmail", "outlook", "protonmail"];
-
-const isProviderCorrect = computed(() => {
-  if (!form.email) return;
-  const provider = form?.email.split("@")[1].split(".")[0];
-  return providers.includes(provider);
-});
-
-const suggestedProvider = computed(() => {
-  if (!form.email) return;
-  const provider = form?.email.split("@")[1].split(".")[0];
-  const closestProvider = providers.find((p) => p.startsWith(provider[0]));
-  return closestProvider || "";
-});
-
-function updateEmail(value) {
-  form.email = value;
-}
-
-function fixProvider(value) {
-  if (!form.email) return;
-  const provider = form?.email.split("@")[1].split(".")[0];
-  form.email = form.email.replace(provider, value);
 }
 
 function passwordStrength(password) {
