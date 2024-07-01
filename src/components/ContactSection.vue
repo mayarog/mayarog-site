@@ -1,5 +1,5 @@
 <template>
-  <q-page-container id="contact" class="bg-dark">
+  <q-page-container padding id="contact" class="bg-dark">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <h1
@@ -44,70 +44,50 @@
           Um de nossos consultores irá te responder o mais breve possível.
         </p>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 q-mt-xl q-pt-xl">
-        <q-form class="q-mx-xl">
-          <div class="col">
+      <div
+        class="col-xs-12 col-sm-12 col-md-12 col-lg-6 flex column justify-center"
+      >
+        <q-form @submit.prevent="sendToWhatsApp()" class="row justify-center">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 q-gutter-md">
             <q-input
               rounded
-              class="q-pa-md"
               color="primary"
               outlined
               v-model="form.name"
               label="Nome"
             />
-          </div>
-          <div class="col">
             <q-input
               rounded
-              class="q-pa-md"
               color="primary"
               outlined
               v-model="form.email"
               label="Email"
             />
-          </div>
-          <div class="col">
             <q-input
               rounded
-              class="q-pa-md"
               color="primary"
               outlined
               v-model="form.subject"
               label="Assunto"
             />
-          </div>
-          <div class="col">
             <q-select
               rounded
               outlined
-              class="q-pa-md"
               v-model="form.type"
               :options="typeOptions"
               label="Tipo"
               option-label="text"
               option-value="value"
             />
-          </div>
-          <div class="col">
             <q-input
               rounded
-              class="q-pa-md"
               color="primary"
               outlined
               v-model="form.message"
               label="Mensagem"
               type="textarea"
             />
-          </div>
-          <div class="col flex flex-center">
-            <q-btn
-              class="q-py-md q-px-xl"
-              @click="sendToWhatsApp()"
-              rounded
-              color="primary"
-              size="16px"
-              label="Enviar"
-            />
+            <q-btn rounded color="primary" label="Enviar" type="submit" />
           </div>
         </q-form>
       </div>
