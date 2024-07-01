@@ -23,6 +23,11 @@ const routes = [
         name: "email-confirmation",
         component: () => import("pages/EmailConfirmation.vue"),
       },
+      {
+        path: "reset-password",
+        name: "reset-password",
+        component: () => import("pages/ResetPassword.vue"),
+      },
     ],
   },
   {
