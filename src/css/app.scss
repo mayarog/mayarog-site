@@ -28,10 +28,11 @@ a {
   color: white;
 }
 
-.q-input.q-field--rounded div.q-field__control input.q-placeholder {
+.q-field--rounded div.q-field__control input.q-placeholder {
   margin-left: 10px;
 }
-.q-input.q-field--rounded div.q-field__control div.q-field__label {
+.q-field--rounded div.q-field__control-container div.q-field__label,
+.q-field--rounded div.q-field__control div.q-field__label {
   padding-left: 12px;
 }
 
