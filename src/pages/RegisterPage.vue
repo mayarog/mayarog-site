@@ -37,37 +37,12 @@
             <q-icon name="phone" />
           </template>
         </q-input>
-        <EmailInput :value="form.email" :rules="rules.email" />
-        <q-input
-          rounded
-          outlined
-          v-model="form.password"
-          :rules="rules.password"
-          color="primary"
-          :type="fields.password.isPwd ? 'password' : 'text'"
-          label="Senha"
-        >
-          <template #hint>
-            <q-linear-progress
-              v-if="form.password"
-              rounded
-              size="4px"
-              :value="passwordStrength(form.password).score"
-              :color="passwordStrength(form.password).color"
-              class="q-mt-sm"
-            />
-          </template>
-          <template #append>
-            <q-icon
-              class="q-mr-sm"
-              @click="fields.password.isPwd = !fields.password.isPwd"
-              :name="fields.password.isPwd ? 'visibility' : 'visibility_off'"
-            />
-          </template>
-          <template #prepend>
-            <q-icon name="password" />
-          </template>
-        </q-input>
+        <EmailInput
+          :value="form.email"
+          @change="(v) => (form.email = v)"
+          @update:value="form.email = $event"
+        />
+        <StrongPasswordInput v-model="form.password" />
         <q-input
           rounded
           outlined
@@ -76,6 +51,11 @@
           color="primary"
           :type="fields.confirmPassword.isPwd ? 'password' : 'text'"
           label="Confirmar Senha"
+          @change="
+            () => {
+              console.log('pass', form.password, 'con', confirmPassword);
+            }
+          "
         >
           <template #append>
             <q-icon
@@ -123,6 +103,7 @@
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import EmailInput from "components/EmailInput.vue";
+import StrongPasswordInput from "components/StrongPasswordInput.vue";
 import useAuthUser from "src/composables/UseAuthUser";
 
 const $router = useRouter();
@@ -158,37 +139,6 @@ async function handleRegister() {
   } catch (error) {
     alert(error.message);
   }
-}
-
-function passwordStrength(password) {
-  const fragments = [
-    { regex: /[a-z]/, weight: 0.2 },
-    { regex: /[A-Z]/, weight: 0.2 },
-    { regex: /\d/, weight: 0.2 },
-    { regex: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/, weight: 0.2 },
-    { regex: /^.{8,}$/, weight: 0.2 },
-  ];
-
-  let score = 0;
-
-  fragments.forEach((fragment) => {
-    if (fragment.regex.test(password)) {
-      score += fragment.weight;
-    }
-  });
-
-  let color;
-  if (score < 0.3) {
-    color = "red";
-  } else if (score < 0.5) {
-    color = "orange";
-  } else if (score < 0.8) {
-    color = "blue";
-  } else if (score < 1) {
-    color = "green";
-  }
-
-  return { score, color };
 }
 
 const fields = reactive({

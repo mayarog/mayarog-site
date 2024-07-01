@@ -13,18 +13,11 @@
       class="row justify-center q-gutter-md"
     >
       <div class="col-md-4 col-sm-6 col-xs-10 q-gutter-md">
-        <q-input
-          rounded
-          outlined
-          v-model="form.email"
-          color="primary"
-          type="email"
-          label="Email"
-        >
-          <template #prepend>
-            <q-icon name="abc" />
-          </template>
-        </q-input>
+        <EmailInput
+          :value="form.email"
+          @change="(v) => (form.email = v)"
+          @update:value="form.email = $event"
+        />
         <q-input
           rounded
           outlined
@@ -59,7 +52,7 @@
             Esqueceu sua senha? <br />
             <router-link
               class="text-body1 text-primary"
-              :to="{ name: 'esqueceu-senha' }"
+              :to="{ name: 'forgot-password' }"
             >
               Clique aqui
             </router-link>
@@ -76,6 +69,8 @@ import { useRouter } from "vue-router";
 
 import useAuthUser from "src/composables/UseAuthUser";
 
+import EmailInput from "src/components/EmailInput.vue";
+
 const $router = useRouter();
 
 const { login } = useAuthUser();
@@ -88,7 +83,7 @@ const form = reactive({
 async function handleLogin() {
   try {
     await login(form);
-    router.push({ name: "home" });
+    $router.push({ name: "me" });
   } catch (error) {
     alert(error.message);
   }
