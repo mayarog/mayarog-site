@@ -2,10 +2,10 @@
   <q-page padding v-motion-slide-visible-once-bottom :duration="500">
     <div class="q-pb-lg q-gutter-lg">
       <p class="col-12 text-h2 text-center text-primary font-customization">
-        Área do cliente
+        Recuperar senha
       </p>
       <p class="col-12 text-h5 text-center">
-        Digite o seu e-mail da conta que deseja recuperar
+        Digite o seu e-mail e enviaremos instruções para alteração da senha
       </p>
     </div>
     <q-form
@@ -13,7 +13,11 @@
       class="row justify-center q-gutter-md"
     >
       <div class="col-md-4 col-sm-6 col-xs-10 q-gutter-md">
-        <EmailInput :value="email" />
+        <EmailInput
+          :value="email"
+          @change="(v) => (email = v)"
+          @update:value="email = $event"
+        />
         <p class="text-body1 text-center">
           Não possui acesso? <br class="mobile-only" />
           <router-link :to="{ name: 'auth-register' }">
