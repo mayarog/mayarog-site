@@ -38,16 +38,13 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  rules: {
+    type: Array,
+    required: false,
+  },
 });
 
 const localValue = ref(props.value);
-
-const rules = [
-  (value) => !!value || "O e-mail é obrigatório",
-  (value) =>
-    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) ||
-    "Email inválido",
-];
 
 const providers = ["gmail", "yahoo", "hotmail", "outlook", "protonmail"];
 
