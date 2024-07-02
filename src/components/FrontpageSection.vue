@@ -77,7 +77,7 @@ function sendEmail() {
 </script>
 
 <template>
-  <q-page-container class="q-pt-xl">
+  <q-page-container class="q-px-md">
     <!-- <q-carousel
       animated
       arrows
@@ -106,7 +106,7 @@ function sendEmail() {
         </div>
       </q-carousel-slide>
     </q-carousel> -->
-    <div class="row bg-dark q-pt-xl q-ma-lg">
+    <div class="row bg-dark">
       <div class="col-lg-6 col-sm-12">
         <div class="flex flex-start">
           <div
@@ -127,7 +127,10 @@ function sendEmail() {
         </div>
         <!-- style="max-width: 400px" -->
         <div class="row">
-          <div class="col-xs-12 col-md-6">
+          <div
+            class="col-xs-12 col-md-6"
+            style="display: flex; justify-content: center"
+          >
             <div class="q-pa-md">
               <q-btn
                 v-motion
