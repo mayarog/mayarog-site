@@ -1,16 +1,16 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="shadow-2 rounded-borders">
     <HeaderSection
-      class="desktop-only q-mb-xl"
+      v-if="$q.screen.gt.md"
       v-motion-slide-visible-top
       :duration="500"
     />
     <HeaderSectionMobile
-      class="mobile-only"
+      v-else-if="$q.screen.lt.sm"
       v-motion-slide-visible-top
       :duration="500"
     />
-    <q-page-container class="q-mt-xl q-pt-l">
+    <q-page-container>
       <router-view />
     </q-page-container>
   </q-layout>
