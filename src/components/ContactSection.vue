@@ -48,7 +48,7 @@
         class="col-xs-12 col-sm-12 col-md-12 col-lg-6 flex column justify-center"
       >
         <q-form @submit.prevent="sendToWhatsApp()" class="row justify-center">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 q-gutter-md">
+          <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 q-gutter-md">
             <q-input
               rounded
               color="primary"
