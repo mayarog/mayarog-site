@@ -5,11 +5,7 @@
       v-motion-slide-visible-top
       :duration="500"
     />
-    <HeaderSectionMobile
-      v-else-if="$q.screen.lt.sm"
-      v-motion-slide-visible-top
-      :duration="500"
-    />
+    <HeaderSectionMobile v-else v-motion-slide-visible-top :duration="500" />
     <q-page-container>
       <router-view />
     </q-page-container>
