@@ -48,45 +48,60 @@
         class="col-xs-12 col-sm-12 col-md-12 col-lg-6 flex column justify-center"
       >
         <q-form @submit.prevent="sendToWhatsApp()" class="row justify-center">
-          <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 q-gutter-md">
+          <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 q-gutter-y-sm">
             <q-input
               rounded
               color="primary"
               outlined
               v-model="form.name"
+              :rules="rules.name"
               label="Nome"
-            />
-            <q-input
-              rounded
-              color="primary"
-              outlined
+            >
+              <template #prepend>
+                <q-icon name="abc" />
+              </template>
+            </q-input>
+            <EmailInput
               v-model="form.email"
-              label="Email"
+              @change="(v) => (form.email = v)"
+              @update:value="form.email = $event"
             />
             <q-input
               rounded
               color="primary"
               outlined
               v-model="form.subject"
+              :rules="rules.subject"
               label="Assunto"
-            />
+              ><template #prepend>
+                <q-icon name="abc" />
+              </template>
+            </q-input>
             <q-select
               rounded
               outlined
               v-model="form.type"
               :options="typeOptions"
+              :rules="rules.type"
               label="Tipo"
               option-label="text"
               option-value="value"
-            />
+              ><template #prepend>
+                <q-icon name="abc" />
+              </template>
+            </q-select>
             <q-input
               rounded
               color="primary"
               outlined
               v-model="form.message"
+              :rules="rules.message"
               label="Mensagem"
               type="textarea"
-            />
+              ><template #prepend>
+                <q-icon name="abc" />
+              </template>
+            </q-input>
             <q-btn rounded color="primary" label="Enviar" type="submit" />
           </div>
         </q-form>
@@ -97,6 +112,7 @@
 
 <script setup>
 import { reactive } from "vue";
+import EmailInput from "./EmailInput.vue";
 
 const form = reactive({
   name: "",
@@ -106,12 +122,25 @@ const form = reactive({
   message: "",
 });
 
+const required = (message) => {
+  return (v) => !!v || message;
+};
+
+const rules = {
+  name: [required("O nome é obrigatório")],
+  subject: [required("O assunto é obrigatório")],
+  type: [required("O tipo é obrigatório")],
+  message: [required("A mensagem é obrigatória")],
+};
+
 const typeOptions = [
   { text: "Novo projeto", value: "new_project" },
   { text: "Pedido de suporte", value: "suport_request" },
   { text: "Pedido de suporte", value: "suport_request" },
   { text: "Pedido de consultoria", value: "consultancy_request" },
 ];
+
+function validateForm() {}
 
 function sendToWhatsApp() {
   let message = "Nova mensagem de " + form.name + "\n\n";
