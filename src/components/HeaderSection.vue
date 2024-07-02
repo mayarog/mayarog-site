@@ -1,5 +1,5 @@
 <template>
-  <q-header reveal class="bg-dark">
+  <q-header class="bg-dark">
     <div class="row">
       <slot name="headerToolbar"></slot>
       <q-toolbar class="q-my-md">
