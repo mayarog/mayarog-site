@@ -47,7 +47,7 @@
       <div
         class="col-xs-12 col-sm-12 col-md-12 col-lg-6 flex column justify-center"
       >
-        <q-form class="row justify-center">
+        <q-form class="row justify-center" ref="contactForm">
           <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 q-gutter-y-sm">
             <q-input
               rounded
@@ -55,7 +55,7 @@
               outlined
               v-model="form.name"
               :rules="rules.name"
-              label="Nome"
+              label="Nome *"
             >
               <template #prepend>
                 <q-icon name="abc" />
@@ -72,7 +72,7 @@
               outlined
               v-model="form.subject"
               :rules="rules.subject"
-              label="Assunto"
+              label="Assunto *"
               ><template #prepend>
                 <q-icon name="abc" />
               </template>
@@ -83,7 +83,7 @@
               v-model="form.type"
               :options="typeOptions"
               :rules="rules.type"
-              label="Tipo"
+              label="Tipo *"
               option-label="text"
               option-value="value"
               ><template #prepend>
@@ -96,7 +96,7 @@
               outlined
               v-model="form.message"
               :rules="rules.message"
-              label="Mensagem"
+              label="Mensagem *"
               type="textarea"
               ><template #prepend>
                 <q-icon name="abc" />
@@ -123,6 +123,8 @@
 import { ref, reactive } from "vue";
 import EmailInput from "./EmailInput.vue";
 import SimpleCaptchaDialog from "./SimpleCaptchaDialog.vue";
+
+const contactForm = ref(null);
 
 const form = reactive({
   name: "",
@@ -152,9 +154,15 @@ const typeOptions = [
 
 const simpleCaptchaDialog = ref(null);
 function openCaptchaDialog() {
-  if (simpleCaptchaDialog.value) {
-    simpleCaptchaDialog.value.open();
-  }
+  contactForm.value.validate().then((success) => {
+    if (!success) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+    if (simpleCaptchaDialog.value) {
+      simpleCaptchaDialog.value.open();
+    }
+  });
 }
 
 function sendToWhatsApp() {
