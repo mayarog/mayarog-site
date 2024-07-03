@@ -43,35 +43,11 @@
           @update:value="form.email = $event"
         />
         <StrongPasswordInput v-model="form.password" />
-        <q-input
-          rounded
-          outlined
+        <PasswordInput
           v-model="confirmPassword"
           :rules="rules.confirmPassword"
-          color="primary"
-          :type="fields.confirmPassword.isPwd ? 'password' : 'text'"
           label="Confirmar Senha"
-          @change="
-            () => {
-              console.log('pass', form.password, 'con', confirmPassword);
-            }
-          "
-        >
-          <template #append>
-            <q-icon
-              class="q-mr-sm"
-              @click="
-                fields.confirmPassword.isPwd = !fields.confirmPassword.isPwd
-              "
-              :name="
-                fields.confirmPassword.isPwd ? 'visibility' : 'visibility_off'
-              "
-            />
-          </template>
-          <template #prepend>
-            <q-icon name="password" />
-          </template>
-        </q-input>
+        />
         <div class="row">
           <div class="col-6">
             <q-btn
@@ -104,6 +80,7 @@ import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import EmailInput from "components/EmailInput.vue";
 import StrongPasswordInput from "components/StrongPasswordInput.vue";
+import PasswordInput from "components/PasswordInput.vue";
 import useAuthUser from "src/composables/UseAuthUser";
 
 const $router = useRouter();
