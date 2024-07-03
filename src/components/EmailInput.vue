@@ -8,7 +8,7 @@
     :rules="rules"
     color="primary"
     type="email"
-    label="Email"
+    :label="label"
   >
     <template #hint>
       <p v-if="isProviderCorrect"></p>
@@ -37,6 +37,10 @@ const props = defineProps({
   value: {
     type: String,
     required: true,
+  },
+  label: {
+    type: String,
+    default: "Email *",
   },
   rules: {
     type: Array,
