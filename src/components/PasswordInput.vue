@@ -27,11 +27,11 @@ import { ref } from "vue";
 const props = defineProps({
   value: {
     type: String,
-    default: "Senha",
+    required: true,
   },
   label: {
     type: String,
-    required: true,
+    default: "Senha",
   },
   rules: {
     type: Array,
