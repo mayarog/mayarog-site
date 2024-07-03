@@ -18,18 +18,7 @@
           @change="(v) => (form.email = v)"
           @update:value="form.email = $event"
         />
-        <q-input
-          rounded
-          outlined
-          v-model="form.password"
-          color="primary"
-          type="password"
-          label="Senha"
-        >
-          <template #prepend>
-            <q-icon name="password" />
-          </template>
-        </q-input>
+        <PasswordInput v-model="form.password" label="Senha" />
         <p class="text-body1 text-center">
           Não possui acesso? <br class="mobile-only" />
           <router-link :to="{ name: 'auth-register' }">
@@ -70,6 +59,7 @@ import { useRouter } from "vue-router";
 import useAuthUser from "src/composables/UseAuthUser";
 
 import EmailInput from "src/components/EmailInput.vue";
+import PasswordInput from "src/components/PasswordInput.vue";
 
 const $router = useRouter();
 
