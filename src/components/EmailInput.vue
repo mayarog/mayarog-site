@@ -9,6 +9,7 @@
     color="primary"
     type="email"
     :label="label"
+    :placeholder="placeholder"
   >
     <template #hint>
       <p v-if="isProviderCorrect"></p>
@@ -41,6 +42,10 @@ const props = defineProps({
   label: {
     type: String,
     default: "Email *",
+  },
+  placeholder: {
+    type: String,
+    default: " ",
   },
   rules: {
     type: Array,
