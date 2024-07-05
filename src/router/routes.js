@@ -63,6 +63,11 @@ const routes = [
         name: "desenvolvimento-sistemas",
         component: () => import("pages/UnderConstruction.vue"),
       },
+      {
+        path: "builder-test",
+        name: "builder-test",
+        component: () => import("pages/BuilderTestPage.vue"),
+      },
     ],
   },
   {
