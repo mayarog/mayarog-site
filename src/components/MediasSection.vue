@@ -84,38 +84,36 @@
             </p>
           </div>
         </div>
-        <div
-          class="row flex justify-center q-mb-xl"
+        <q-form
+          class="row flex justify-center q-gutter-md"
           v-motion-slide-visible-once-bottom
           :duration="500"
-          style="width: 100%"
+          ref="newsletterForm"
+          @submit.prevent="handleNewsletter()"
         >
-          <div class="col-xs-12 col-md-8" style="max-width: 400px">
-            <div class="q-pa-md">
-              <q-input
-                rounded
-                color="primary"
-                outlined
-                v-model="email"
-                label="Assinar newsletter"
-                placeholder="Digite seu e-mail"
-              />
-            </div>
+          <div class="col-xs-10 col-sm-7 col-md-4">
+            <EmailInput
+              label="Assinar newsletter"
+              placeholder="Digite seu e-mail"
+              v-model="email"
+              :rules="[]"
+              @change="(v) => (email = v)"
+              @update:value="email = $event"
+            />
           </div>
-          <div class="col-xs-12 col-md-4" style="max-width: 200px">
-            <div class="q-pa-md">
-              <q-btn
-                rounded
-                fab
-                unelevated
-                label="Assinar"
-                color="primary"
-                text-color="white"
-                class="q-px-xl"
-              />
-            </div>
+          <div>
+            <q-btn
+              rounded
+              fab
+              unelevated
+              label="Assinar"
+              color="primary"
+              text-color="white"
+              class="q-px-xl"
+              type="submit"
+            />
           </div>
-        </div>
+        </q-form>
       </div>
     </div>
   </q-page-container>
@@ -123,7 +121,33 @@
 
 <script setup>
 import { ref } from "vue";
+import UseNewsletter from "src/composables/UseNewsletter";
+import EmailInput from "./EmailInput.vue";
+
 defineOptions({ name: "MediasSection" });
 
 const email = ref("");
+const newsletterForm = ref(null);
+
+const { subscribe } = UseNewsletter();
+
+const emailRule = [
+  (value) =>
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) ||
+    "Email inválido",
+];
+
+async function handleNewsletter() {
+  newsletterForm.value.validate().then(async (success) => {
+    if (!success) {
+      alert("Preencha seu email para assinar o newsletter!");
+      return;
+    }
+    try {
+      await subscribe({ email: email.value });
+    } catch (error) {
+      alert(error.message);
+    }
+  });
+}
 </script>
