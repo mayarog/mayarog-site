@@ -63,11 +63,6 @@ const routes = [
         name: "desenvolvimento-sistemas",
         component: () => import("pages/UnderConstruction.vue"),
       },
-      {
-        path: "builder-test",
-        name: "builder-test",
-        component: () => import("pages/BuilderTestPage.vue"),
-      },
     ],
   },
   {
@@ -75,6 +70,16 @@ const routes = [
     component: () => import("layouts/InnerLayout.vue"),
     children: [
       { path: "info", component: () => import("pages/ConsultingPage.vue") },
+      {
+        path: "web-ou-desktop",
+        name: "web-or-desktop",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "landing-pages",
+        name: "landing-pages",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
     ],
   },
   // Always leave this as last one,
