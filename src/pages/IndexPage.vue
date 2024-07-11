@@ -4,7 +4,7 @@
       <FrontpageSection id="frontpage" />
       <AboutUsSection id="aboutus" />
       <ServiceSection id="services" />
-      <ContactSection id="contact" />
+      <ContactSection />
       <MediasSection id="medias" />
       <FooterSection id="footer" />
     </q-scroll-area>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import AboutUsSection from "src/components/AboutUsSection.vue";
 import FrontpageSection from "src/components/FrontpageSection.vue";
 import ServiceSection from "src/components/ServiceSection.vue";
@@ -34,4 +34,17 @@ function animateScroll(value) {
   scrollAreaRef.value.setScrollPosition("vertical", value, 500);
   position.value = Math.floor(Math.random() * 1001) * 20;
 }
+
+function checkHash() {
+  if (window.location.hash) {
+    var target = document.querySelector(window.location.hash);
+    if (target) {
+      target.scrollIntoView();
+    }
+  }
+}
+
+onMounted(() => {
+  checkHash();
+});
 </script>
