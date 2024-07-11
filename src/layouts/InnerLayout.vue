@@ -12,14 +12,7 @@
       </template>
       <template v-slot:footerToolbar>
         <q-toolbar inset>
-          <q-breadcrumbs active-color="white" style="font-size: 16px">
-            <q-breadcrumbs-el label="Home" icon="home"></q-breadcrumbs-el>
-            <q-breadcrumbs-el
-              label="Serviços"
-              icon="widgets"
-            ></q-breadcrumbs-el>
-            <q-breadcrumbs-el label="Toolbar"></q-breadcrumbs-el>
-          </q-breadcrumbs>
+          <Breadcrumbs :breadcrumbs="breadcrumbs" />
         </q-toolbar>
       </template>
     </HeaderSection>
@@ -31,6 +24,7 @@
 <script setup>
 import HeaderSection from "src/components/HeaderSection.vue";
 import useAuthUser from "src/composables/UseAuthUser";
+import Breadcrumbs from "components/Breadcrumbs.vue";
 import { useRouter } from "vue-router";
 import { useQuasar } from "quasar";
 
@@ -38,6 +32,27 @@ const $q = useQuasar();
 const $router = useRouter();
 
 const { logout } = useAuthUser();
+
+const breadcrumbs = [
+  {
+    label: "home",
+    icon: "home",
+    to: "/",
+    active: true,
+  },
+  {
+    label: "Serviços",
+    icon: "widgets",
+    to: "/servicos",
+    active: false,
+  },
+  {
+    label: "Web ou Desktop",
+    icon: "widgets",
+    to: "",
+    active: false,
+  },
+];
 
 async function handlerLogout() {
   $q.dialog({
