@@ -1,5 +1,5 @@
 <template>
-  <q-page-container padding id="contact" class="bg-dark">
+  <q-page-container padding class="bg-dark">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <h1
@@ -47,7 +47,7 @@
       <div
         class="col-xs-12 col-sm-12 col-md-12 col-lg-6 flex column justify-center"
       >
-        <q-form class="row justify-center" ref="contactForm">
+        <q-form class="row justify-center" ref="contactForm" id="contact">
           <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 q-gutter-y-sm">
             <q-input
               rounded
@@ -65,6 +65,7 @@
               v-model="form.email"
               @change="(v) => (form.email = v)"
               @update:value="form.email = $event"
+              label="Email *"
             />
             <q-input
               rounded
