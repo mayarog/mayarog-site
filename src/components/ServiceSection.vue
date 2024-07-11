@@ -45,7 +45,7 @@
           fab
           unelevated
           color="dark"
-          @click="openDialog(index)"
+          :to="card?.route ?? '/em-construcao'"
         >
           <q-card class="text-white rounded flex flex-center" flat>
             <q-card-section class="q-pt-lg">
@@ -106,6 +106,7 @@ const cards = ref([
     icon: "mdi-application",
     title: "Desenvolvimento Web ou Desktop",
     subtitle: "Sistemas personalizados para ajudar nas metas do seu negócio.",
+    route: { name: "web-or-desktop" },
   },
   {
     icon: "mdi-airplane-landing",
