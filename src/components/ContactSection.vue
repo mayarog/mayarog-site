@@ -1,5 +1,5 @@
 <template>
-  <q-page-container id="contact" class="bg-dark">
+  <q-page-container padding id="contact" class="bg-dark">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <h1
@@ -44,69 +44,73 @@
           Um de nossos consultores irá te responder o mais breve possível.
         </p>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 q-mt-xl q-pt-xl">
-        <q-form class="q-mx-xl">
-          <div class="col">
+      <div
+        class="col-xs-12 col-sm-12 col-md-12 col-lg-6 flex column justify-center"
+      >
+        <q-form class="row justify-center" ref="contactForm">
+          <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 q-gutter-y-sm">
             <q-input
               rounded
-              class="q-pa-md"
               color="primary"
               outlined
               v-model="form.name"
-              label="Nome"
-            />
-          </div>
-          <div class="col">
-            <q-input
-              rounded
-              class="q-pa-md"
-              color="primary"
-              outlined
+              :rules="rules.name"
+              label="Nome *"
+            >
+              <template #prepend>
+                <q-icon name="abc" />
+              </template>
+            </q-input>
+            <EmailInput
               v-model="form.email"
-              label="Email"
+              @change="(v) => (form.email = v)"
+              @update:value="form.email = $event"
             />
-          </div>
-          <div class="col">
             <q-input
               rounded
-              class="q-pa-md"
               color="primary"
               outlined
               v-model="form.subject"
-              label="Assunto"
-            />
-          </div>
-          <div class="col">
+              :rules="rules.subject"
+              label="Assunto *"
+              ><template #prepend>
+                <q-icon name="abc" />
+              </template>
+            </q-input>
             <q-select
               rounded
               outlined
-              class="q-pa-md"
               v-model="form.type"
               :options="typeOptions"
-              label="Tipo"
+              :rules="rules.type"
+              label="Tipo *"
               option-label="text"
               option-value="value"
-            />
-          </div>
-          <div class="col">
+              ><template #prepend>
+                <q-icon name="abc" />
+              </template>
+            </q-select>
             <q-input
               rounded
-              class="q-pa-md"
               color="primary"
               outlined
               v-model="form.message"
-              label="Mensagem"
+              :rules="rules.message"
+              label="Mensagem *"
               type="textarea"
-            />
-          </div>
-          <div class="col flex flex-center">
+              ><template #prepend>
+                <q-icon name="abc" />
+              </template>
+            </q-input>
             <q-btn
-              class="q-py-md q-px-xl"
-              @click="sendToWhatsApp()"
               rounded
               color="primary"
-              size="16px"
               label="Enviar"
+              @click="openCaptchaDialog()"
+            />
+            <SimpleCaptchaDialog
+              ref="simpleCaptchaDialog"
+              @submit="sendToWhatsApp()"
             />
           </div>
         </q-form>
@@ -116,7 +120,11 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { ref, reactive } from "vue";
+import EmailInput from "./EmailInput.vue";
+import SimpleCaptchaDialog from "./SimpleCaptchaDialog.vue";
+
+const contactForm = ref(null);
 
 const form = reactive({
   name: "",
@@ -126,12 +134,36 @@ const form = reactive({
   message: "",
 });
 
+const required = (message) => {
+  return (v) => !!v || message;
+};
+
+const rules = {
+  name: [required("O nome é obrigatório")],
+  subject: [required("O assunto é obrigatório")],
+  type: [required("O tipo é obrigatório")],
+  message: [required("A mensagem é obrigatória")],
+};
+
 const typeOptions = [
   { text: "Novo projeto", value: "new_project" },
   { text: "Pedido de suporte", value: "suport_request" },
   { text: "Pedido de suporte", value: "suport_request" },
   { text: "Pedido de consultoria", value: "consultancy_request" },
 ];
+
+const simpleCaptchaDialog = ref(null);
+function openCaptchaDialog() {
+  contactForm.value.validate().then((success) => {
+    if (!success) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+    if (simpleCaptchaDialog.value) {
+      simpleCaptchaDialog.value.open();
+    }
+  });
+}
 
 function sendToWhatsApp() {
   let message = "Nova mensagem de " + form.name + "\n\n";

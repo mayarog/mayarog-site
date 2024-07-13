@@ -1,11 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="shadow-2 rounded-borders">
-    <HeaderSection
-      v-if="$q.screen.gt.md"
-      v-motion-slide-visible-top
-      :duration="500"
-    />
-    <HeaderSectionMobile v-else v-motion-slide-visible-top :duration="500" />
+    <HeaderSection v-motion-slide-visible-top :duration="500" hideButtons />
     <q-page-container>
       <router-view />
     </q-page-container>

@@ -1,41 +1,83 @@
-
 const routes = [
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    path: "/",
+    component: () => import("layouts/AuthLayout.vue"),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
-    ]
+      {
+        path: "login",
+        name: "auth-login",
+        component: () => import("src/pages/LoginPage.vue"),
+      },
+      {
+        path: "register",
+        name: "auth-register",
+        component: () => import("src/pages/RegisterPage.vue"),
+      },
+      {
+        path: "forgot-password",
+        name: "forgot-password",
+        component: () => import("pages/ForgotPassword.vue"),
+      },
+      {
+        path: "email-confirmation",
+        name: "email-confirmation",
+        component: () => import("pages/EmailConfirmation.vue"),
+      },
+      {
+        path: "reset-password",
+        name: "reset-password",
+        component: () => import("pages/ResetPassword.vue"),
+      },
+    ],
   },
   {
-    path: '/consultoria',
-    component: () => import('layouts/InnerLayout.vue'),
+    path: "/",
+    component: () => import("layouts/InnerLayout.vue"),
     children: [
-      { path: '', component: () => import('pages/ConsultingPage.vue') }
-      // { path: '', component: () => import('pages/UnderConstruction.vue') }
-    ]
+      {
+        path: "me",
+        name: "me",
+        component: () => import("pages/Me.vue"),
+      },
+    ],
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
-    path: '/desenvolvimento-sistemas',
-    component: () => import('layouts/MainLayout.vue'),
+    path: "",
+    component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: '', component: () => import('pages/UnderConstruction.vue') }
-    ]
+      {
+        path: "",
+        name: "home",
+        component: () => import("pages/IndexPage.vue"),
+      },
+      {
+        path: "em-construcao",
+        name: "em-construcao",
+        component: () => import("pages/UnderConstruction.vue"),
+      },
+      {
+        path: "desenvolvimento-sistemas",
+        name: "desenvolvimento-sistemas",
+        component: () => import("pages/UnderConstruction.vue"),
+      },
+    ],
   },
   {
-    path: '/em-construcao',
-    component: () => import('layouts/MainLayout.vue'),
+    path: "/consultoria",
+    component: () => import("layouts/InnerLayout.vue"),
     children: [
-      { path: '', component: () => import('pages/UnderConstruction.vue') }
-    ]
+      { path: "info", component: () => import("pages/ConsultingPage.vue") },
+    ],
   },
-
   // Always leave this as last one,
   // but you can also remove it
   {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
-]
+    path: "/:catchAll(.*)*",
+    component: () => import("pages/ErrorNotFound.vue"),
+  },
+];
 
-export default routes
+export default routes;

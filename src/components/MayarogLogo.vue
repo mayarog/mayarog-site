@@ -14,7 +14,7 @@
         class="font--playfair-display text-h4"
         :style="{ fontSize: `${Number(props.size) / 2}px` }"
       >
-        Mayarog
+        <router-link :to="{ name: props.to }"> Mayarog </router-link>
       </span>
     </div>
   </div>
@@ -23,5 +23,6 @@
 <script setup>
 const props = defineProps({
   size: { type: String, default: "80" },
+  to: { type: String, default: "home" },
 });
 </script>

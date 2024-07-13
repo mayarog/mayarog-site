@@ -23,6 +23,19 @@ body {
   border-radius: 30px;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.q-field--rounded div.q-field__control input.q-placeholder {
+  margin-left: 10px;
+}
+.q-field--rounded div.q-field__control-container div.q-field__label,
+.q-field--rounded div.q-field__control div.q-field__label {
+  padding-left: 12px;
+}
+
 @media screen and (max-width: 430px) {
   .text-h1 {
     line-height: normal;
@@ -36,5 +49,9 @@ body {
   .text-h4 {
     line-height: normal;
     font-size: 1.4rem;
+  }
+  .text-h5 {
+    line-height: normal;
+    font-size: 1.1rem;
   }
 }

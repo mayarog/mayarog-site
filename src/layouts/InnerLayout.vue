@@ -1,6 +1,15 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="shadow-2 rounded-borders">
     <HeaderSection>
+      <template #toolbar-customactions>
+        <q-btn-dropdown flat color="primary" icon="person">
+          <q-list>
+            <q-item clickable v-close-popup @click="handlerLogout">
+              <q-item-section>Logout</q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+      </template>
       <template v-slot:footerToolbar>
         <q-toolbar inset>
           <q-breadcrumbs active-color="white" style="font-size: 16px">
@@ -19,24 +28,30 @@
     </q-page-container>
   </q-layout>
 </template>
-<script>
-import { defineComponent, ref } from "vue";
+<script setup>
 import HeaderSection from "src/components/HeaderSection.vue";
-export default defineComponent({
-  name: "MainLayout",
-  components: {
-    HeaderSection,
-  },
+import useAuthUser from "src/composables/UseAuthUser";
+import { useRouter } from "vue-router";
+import { useQuasar } from "quasar";
 
-  setup() {
-    const leftDrawerOpen = ref(false);
+const $q = useQuasar();
+const $router = useRouter();
 
-    return {
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-    };
-  },
-});
+const { logout } = useAuthUser();
+
+async function handlerLogout() {
+  $q.dialog({
+    title: "Logout",
+    message: "Deseja realmente sair?",
+    cancel: true,
+    persistent: true,
+  })
+    .onOk(async () => {
+      await logout();
+      $router.replace({ name: "auth-login" });
+    })
+    .onCancel(() => {
+      return;
+    });
+}
 </script>

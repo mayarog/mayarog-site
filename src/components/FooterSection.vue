@@ -1,24 +1,31 @@
 <template>
-  <div
-    class="row q-mt-xl footer-bar text-white font-customization"
-    v-motion-slide-visible-once-bottom
-    :duration="500"
-  >
-    <div class="col-xs-12 col-sm-12 col-md-4 q-mt-xl text-center links-section">
-      <p>
-        <a>Área do Cliente</a> | <a @click="useTermsDialog">Termos de Uso</a> |
-        <a @click="priacyPolicy">Política de Privacidade</a>
-      </p>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 mt-n10 flex justify-center">
-      <MayarogLogo size="60" />
-    </div>
+  <q-page-container>
     <div
-      class="col-xs-12 col-sm-12 col-md-4 q-mt-xl q-pr-md text-center xs-p-customize"
+      class="row q-mt-xl footer-bar text-white font-customization"
+      v-motion-slide-visible-once-bottom
+      :duration="500"
     >
-      <p>Copyright © 2023 Mayarog - Todos os direitos reservados</p>
+      <div
+        class="col-xs-12 col-sm-12 col-md-4 q-mt-xl text-center links-section"
+      >
+        <p>
+          <router-link :to="{ name: 'auth-login' }">
+            Área do Cliente
+          </router-link>
+          | <a @click="useTermsDialog">Termos de Uso</a> |
+          <a @click="priacyPolicyDialog">Política de Privacidade</a>
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 mt-n10 flex justify-center">
+        <MayarogLogo size="60" />
+      </div>
+      <div
+        class="col-xs-12 col-sm-12 col-md-4 q-mt-xl q-pr-md text-center xs-p-customize"
+      >
+        <p>Copyright © 2023 Mayarog - Todos os direitos reservados</p>
+      </div>
     </div>
-  </div>
+  </q-page-container>
 </template>
 
 <script setup>
@@ -45,7 +52,7 @@ function useTermsDialog() {
     },
   });
 }
-function priacyPolicy() {
+function priacyPolicyDialog() {
   $q.dialog({
     component: DialogCard,
     componentProps: {
@@ -60,13 +67,11 @@ function priacyPolicy() {
 </script>
 
 <style>
-a {
-  text-decoration: none;
-}
 .footer-bar {
   background-color: #0f1819;
   min-height: 130px;
   height: fit-content;
+  padding-bottom: -400px;
 }
 
 .mt-n10 {
