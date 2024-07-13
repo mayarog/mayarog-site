@@ -41,7 +41,7 @@ const props = defineProps({
   },
   label: {
     type: String,
-    default: "Email *",
+    default: "Email",
   },
   placeholder: {
     type: String,
