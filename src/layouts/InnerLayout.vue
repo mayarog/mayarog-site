@@ -2,7 +2,23 @@
   <q-layout view="lHh Lpr lFf" class="shadow-2 rounded-borders">
     <HeaderSection>
       <template #toolbar-customactions>
-        <q-btn-dropdown flat color="primary" icon="person">
+        <div v-if="!user">
+          <q-btn
+            flat
+            color="primary"
+            rounded
+            label="Login"
+            :to="{ name: 'auth-login' }"
+          />
+          <q-btn
+            flat
+            color="primary"
+            rounded
+            label="Registro"
+            :to="{ name: 'auth-register' }"
+          />
+        </div>
+        <q-btn-dropdown flat color="primary" icon="person" v-else-if="user">
           <q-list>
             <q-item clickable v-close-popup @click="handlerLogout">
               <q-item-section>Logout</q-item-section>
@@ -31,7 +47,7 @@ import { useQuasar } from "quasar";
 const $q = useQuasar();
 const $router = useRouter();
 
-const { logout } = useAuthUser();
+const { logout, user } = useAuthUser();
 
 const breadcrumbs = [
   {
