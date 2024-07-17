@@ -1,6 +1,6 @@
 <template>
-  <div class="q-my-lg">
-    <q-scroll-area style="height: 80dvh">
+  <q-page padding>
+    <q-scroll-area style="height: 81vh">
       <BlogPost
         v-for="(post, key) in blogPosts"
         :key="key"
@@ -9,21 +9,20 @@
         :thumb="post?.thumb"
         :thumbAlign="post?.thumb_align"
       />
-      <div
-        style="display: flex; justify-content: center; vertical-align: middle"
-      >
+      <div class="flex justify-center">
         <q-btn
           v-motion-slide-visible-once-bottom
           :duration="500"
           label="contratar"
-          class="text-h6 flex flex-center q-mt-xl"
+          class="text-h6 q-px-lg"
           rounded
           color="primary"
+          text-color="dark"
           @click="handleContact()"
         />
       </div>
     </q-scroll-area>
-  </div>
+  </q-page>
 </template>
 
 <script setup>
@@ -32,6 +31,7 @@ import { useRoute, useRouter } from "vue-router";
 import BlogPost from "components/BlogPost.vue";
 import useServicesPost from "src/composables/UseServicesPost";
 
+const emit = defineEmits(["breadcrumbs"]);
 const $route = useRoute();
 const $router = useRouter();
 const { getPost } = useServicesPost();
@@ -46,9 +46,11 @@ function handleContact() {
 
 const blogPosts = ref([]);
 const blogAction = ref({});
+const breadcrumb = ref({});
 
 async function setPost() {
-  const response = await getPost();
+  const response = await getPost($route.name);
+
   blogPosts.value = [
     {
       title: response.title,
@@ -58,6 +60,8 @@ async function setPost() {
     },
   ];
   blogAction.value = { name: response.action };
+  breadcrumb.value = response.breadcrumb;
+  emit("breadcrumb", breadcrumb.value);
 }
 
 onMounted(async () => {
