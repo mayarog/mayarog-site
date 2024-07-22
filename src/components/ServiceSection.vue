@@ -112,26 +112,31 @@ const cards = ref([
     icon: "mdi-airplane-landing",
     title: "Landing Pages",
     subtitle: "Direcione o público direto para a sua página exclusiva.",
+    route: { name: "landing-pages" },
   },
   {
     icon: "mdi-cellphone",
     title: "Desenvolvimento de Aplicativos",
     subtitle: "Aplicativos feitos para os principais dispositivos do mercado.",
+    route: { name: "mobile-development" },
   },
   {
     icon: "mdi-lightbulb",
     title: "Consultoria em Projetos/T.I",
     subtitle: "Estamos prontos para te ajudar a tirar o seu projeto do papel!",
+    route: { name: "consulting-ti" },
   },
   {
     icon: "mdi-cart-plus",
     title: "Lojas Virtuais/E-commerce",
     subtitle: "Venda seus produtos para qualquer parte do mundo!",
+    route: { name: "e-comerce" },
   },
   {
     icon: "mdi-wordpress",
     title: "Suporte Wordpress",
     subtitle: "Total suporte para o seu site ou sistema feito em wordpress.",
+    route: { name: "wordpress-support" },
   },
   // {
   //   icon: "mdi-check-decagram",
