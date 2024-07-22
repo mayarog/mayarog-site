@@ -30,7 +30,7 @@
               }"
               class="rounded col-6 q-mx-lg q-mb-md"
             />
-            {{ content }}
+            <span v-html="content"></span>
           </p>
         </div>
       </div>
