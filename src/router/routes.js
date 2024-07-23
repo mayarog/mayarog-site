@@ -80,6 +80,26 @@ const routes = [
         name: "landing-pages",
         component: () => import("src/pages/ServicesDynamicPage.vue"),
       },
+      {
+        path: "desenvolvimento-mobile",
+        name: "mobile-development",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "consultoria-ti",
+        name: "consulting-ti",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "e-comerce",
+        name: "e-comerce",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "suporte-wordpress",
+        name: "wordpress-support",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
     ],
   },
   // Always leave this as last one,
