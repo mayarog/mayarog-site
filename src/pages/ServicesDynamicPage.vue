@@ -28,6 +28,8 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { useMeta } from "quasar";
+
 import BlogPost from "components/BlogPost.vue";
 import useServicesPost from "src/composables/UseServicesPost";
 
@@ -50,6 +52,10 @@ const breadcrumb = ref({});
 
 async function setPost() {
   const response = await getPost($route.name);
+  const metaData = {
+    title: response.meta_tags.title.content,
+    meta: response.meta_tags,
+  };
 
   blogPosts.value = [
     {
@@ -61,6 +67,8 @@ async function setPost() {
   ];
   blogAction.value = { name: response.action };
   breadcrumb.value = response.breadcrumb;
+
+  useMeta(metaData);
   emit("breadcrumb", breadcrumb.value);
 }
 

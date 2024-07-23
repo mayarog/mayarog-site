@@ -76,8 +76,8 @@ const routes = [
         component: () => import("src/pages/ServicesDynamicPage.vue"),
       },
       {
-        path: "landing-pages",
-        name: "landing-pages",
+        path: "registro-de-dominio",
+        name: "domain-register",
         component: () => import("src/pages/ServicesDynamicPage.vue"),
       },
       {
