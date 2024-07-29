@@ -1,16 +1,17 @@
 <template>
   <q-page padding>
     <q-scroll-area style="height: 81vh">
-      <BlogPost
+      <div class="container">
+        <BlogPost
         v-for="(post, key) in blogPosts"
         :key="key"
         :title="post?.title"
         :text="post?.text"
         :thumb="post?.thumb"
         :thumbAlign="post?.thumb_align"
-      />
-      <div class="flex justify-center">
-        <q-btn
+        />
+        <div class="flex justify-center">
+          <q-btn
           v-motion-slide-visible-once-bottom
           :duration="500"
           label="contratar"
@@ -19,7 +20,8 @@
           color="primary"
           text-color="dark"
           @click="handleContact()"
-        />
+          />
+        </div>
       </div>
     </q-scroll-area>
   </q-page>
@@ -68,3 +70,24 @@ onMounted(async () => {
   setPost();
 });
 </script>
+
+<style>
+.container {
+  max-width: 74vw;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    max-width: 92vw;
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+</style>

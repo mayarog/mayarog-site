@@ -63,10 +63,10 @@ onMounted(() => {
 @media only screen and (max-width: 700px) {
   .container {
     max-width: 92vw;
-  justify-content: center;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
   }
 }
 
