@@ -64,18 +64,15 @@ class NewsletterUnsubMailer extends Mailer {
   }
 }
 
-function UseNewsletterMailer() {
-  function sendUnsubMail(email) {
+export default function UseNewsletterMailer() {
+  const sendUnsubMail = (email) => {
     const mailer = NewsletterUnsubMailer();
     try {
       mailer.send(email);
     } catch (err) {
       console.log("Error".red, err);
     }
-  }
+  };
 
   return { sendUnsubMail };
 }
-
-export default { UseNewsletterMailer };
-export { UseNewsletterMailer };
