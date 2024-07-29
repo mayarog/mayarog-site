@@ -1,11 +1,13 @@
 <template>
   <q-page>
     <q-scroll-area ref="scrollAreaRef" style="height: 91vh">
-      <FrontpageSection id="frontpage" />
-      <AboutUsSection id="aboutus" />
-      <ServiceSection id="services" />
-      <ContactSection />
-      <MediasSection id="medias" />
+      <div class="container">
+        <FrontpageSection id="frontpage" />
+        <AboutUsSection id="aboutus" />
+        <ServiceSection id="services" />
+        <ContactSection />
+        <MediasSection id="medias" />
+      </div>
       <FooterSection id="footer" />
     </q-scroll-area>
     <q-page-sticky :offset="[18, 18]">
@@ -48,3 +50,14 @@ onMounted(() => {
   checkHash();
 });
 </script>
+
+<style>
+.container {
+  max-width: 80vw;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+</style>
