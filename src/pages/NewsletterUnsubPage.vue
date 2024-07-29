@@ -59,9 +59,8 @@
 <script setup>
 import { ref } from "vue";
 import UseNewsletter from "src/composables/UseNewsletter";
+import UseNewsletterMailer from "src/mail/NewsletterUnsubMailer";
 import EmailInput from "components/EmailInput.vue";
-
-import { UseNewsletterMailer } from "src/mail/NewsletterUnsubMailer";
 
 const email = ref("");
 const newsletterForm = ref(null);
