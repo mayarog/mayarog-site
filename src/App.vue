@@ -3,7 +3,6 @@
 </template>
 
 <script setup>
-import { defineOptions } from "vue";
 import { useQuasar } from "quasar";
 
 defineOptions({
