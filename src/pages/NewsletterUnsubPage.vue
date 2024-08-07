@@ -58,15 +58,18 @@
 
 <script setup>
 import { ref } from "vue";
+import { api } from "src/boot/axios";
 import UseNewsletter from "src/composables/UseNewsletter";
-import UseNewsletterMailer from "src/mail/NewsletterUnsubMailer";
 import EmailInput from "components/EmailInput.vue";
 
 const email = ref("");
 const newsletterForm = ref(null);
 
 const { unsubscribe } = UseNewsletter();
-const { sendUnsubMail } = UseNewsletterMailer();
+
+async function sendUnsubMail() {
+  await api.get(`/newsletter/unsubscribe/mailer/${email.value}`);
+}
 
 async function handleNewsletter() {
   newsletterForm.value.validate().then(async (success) => {
@@ -75,11 +78,10 @@ async function handleNewsletter() {
       return;
     }
     try {
-      await unsubscribe({ email: email.value }).then(() => {
-        sendUnsubMail(email.value);
-      });
-    } catch (error) {
-      alert(error.message);
+      await unsubscribe({ email: email.value })
+      await sendUnsubMail(email.value);
+    } catch (err) {
+      console.log(err.message);
     }
   });
 }
