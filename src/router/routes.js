@@ -63,6 +63,11 @@ const routes = [
         name: "desenvolvimento-sistemas",
         component: () => import("pages/UnderConstruction.vue"),
       },
+      {
+        path: "newsletter-desinscrever",
+        name: "newsletter-unsubscribe",
+        component: () => import("pages/NewsletterUnsubPage.vue"),
+      },
     ],
   },
   {
@@ -76,8 +81,8 @@ const routes = [
         component: () => import("src/pages/ServicesDynamicPage.vue"),
       },
       {
-        path: "landing-pages",
-        name: "landing-pages",
+        path: "registro-de-dominio",
+        name: "domain-register",
         component: () => import("src/pages/ServicesDynamicPage.vue"),
       },
       {
