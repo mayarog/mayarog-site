@@ -1,8 +1,7 @@
-import "dotenv/config";
-import "colors";
-import nodemailer from "nodemailer";
+require("dotenv").config();
+const nodemailer = require("nodemailer");
 
-export default class Mailer {
+class Mailer {
   constructor() {
     this.transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -34,3 +33,5 @@ export default class Mailer {
       });
   }
 }
+
+module.exports = Mailer;
