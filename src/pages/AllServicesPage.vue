@@ -161,21 +161,6 @@ const cards = ref([
   }
 ]);
 
-// async function setPost() {
-//   const response = await getPost($route.name);
-
-//   blogPosts.value = [
-//     {
-//       title: response.title,
-//       text: response.text,
-//       thumb: response.thumb,
-//       thumb_align: response.thumb_align,
-//     },
-//   ];
-//   blogAction.value = { name: response.action };
-//   breadcrumb.value = response.breadcrumb;
-// }
-
 onMounted(async () => {
   emit("breadcrumb", breadcrumb.value);
 });
