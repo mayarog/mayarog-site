@@ -156,7 +156,7 @@ const cards = ref([
   {
     icon: "mdi-movie-edit",
     title: "Edição de Video",
-    subtitle: "Edição de videos e videos curtos para TikTok ou Youtube",
+    subtitle: "Edição de videos e videos curtos para TikTok, Youtube etc",
     route: { name: "video-edition" }
   }
 ]);
