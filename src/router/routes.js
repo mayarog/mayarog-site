@@ -76,6 +76,11 @@ const routes = [
     children: [
       { path: "info", component: () => import("pages/ConsultingPage.vue") },
       {
+        path: "servicos",
+        name: "services",
+        component: () => import("pages/AllServicesPage.vue"),
+      },
+      {
         path: "web-ou-desktop",
         name: "web-or-desktop",
         component: () => import("src/pages/ServicesDynamicPage.vue"),
@@ -103,6 +108,51 @@ const routes = [
       {
         path: "suporte-wordpress",
         name: "wordpress-support",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "administracao-de-redes-sociais",
+        name: "social-media-administration",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "criacao-de-logo-marcas",
+        name: "logo-creation",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "marketing-digital",
+        name: "digital-marketing",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "artes-digitais",
+        name: "digital-arts",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "criacao-de-artes-digitais",
+        name: "digital-art-creation",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "identidade-visual",
+        name: "visual-identity",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "edicao-de-imagem",
+        name: "image-edition",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "edicao-de-imagem",
+        name: "image-edition",
+        component: () => import("src/pages/ServicesDynamicPage.vue"),
+      },
+      {
+        path: "edicao-de-video",
+        name: "video-edition",
         component: () => import("src/pages/ServicesDynamicPage.vue"),
       },
     ],
