@@ -87,7 +87,7 @@
         :enter="{ opacity: 1, y: 0, scale: 1.1 }"
         :hovered="{ scale: 1.2 }"
         class="q-my-md q-px-lg"
-        to="/em-construcao"
+        :to="{name: 'services'}"
         rounded
         outline
         block
