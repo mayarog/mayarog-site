@@ -61,14 +61,14 @@ async function setPost() {
 
   blogPosts.value = [
     {
-      title: response.title,
-      text: response.text,
-      thumb: response.thumb,
-      thumb_align: response.thumb_align,
+      title: response?.title,
+      text: response?.text,
+      thumb: response?.thumb,
+      thumb_align: response?.thumb_align,
     },
   ];
   blogAction.value = { name: response.action };
-  breadcrumb.value = response.breadcrumb;
+  breadcrumb.value = response?.breadcrumb;
 
   useMeta(metaData);
   emit("breadcrumb", breadcrumb.value);

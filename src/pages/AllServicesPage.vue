@@ -1,42 +1,13 @@
 <template>
-  <q-page-container class="bg-dark text-white text-center">
-    <div class="row flex flex-center q-mb-xl">
-      <div class="col-12">
-        <h1
-          class="text-h1 text-primary text-left font-customization q-px-lg"
-          v-motion-slide-visible-once-bottom
-          :duration="500"
-        >
-          Nossos Serviços
-        </h1>
-        <p
-          class="text-h4 text-left q-pt-md q-pa-lg q-mb-lg"
-          v-motion-slide-visible-once-bottom
-          :duration="500"
-        >
-          Seja para desenvolver um site ou aplicativo sob medida, impulsionar
-          suas vendas com uma loja virtual, fortalecer sua presença online com
-          estratégias de marketing digital ou criar uma identidade visual
-          cativante para sua marca, estamos aqui para ajudar.
-        </p>
-        <p
-          class="text-h4 text-left q-px-lg q-mb-xl"
-          v-motion-slide-visible-once-bottom
-          :duration="500"
-        >
-          Explore nossos serviços e descubra como podemos ajudá-lo a alcançar
-          seus objetivos digitais. Na Mayarog, o futuro da sua presença online
-          começa aqui.
-        </p>
-      </div>
-    </div>
-    <div class="row">
+  <q-page padding>
+    <q-scroll-area style="height: 81vh">
+      <div class="row">
       <div
         class="col-xs-12 col-sm-12 col-md-6 col-lg-4"
         v-for="(card, index) in cards"
         :key="card"
         v-motion-slide-visible-once-bottom
-        :delay="index * 100"
+        :delay="index * 50"
         :duration="500"
       >
         <q-btn
@@ -80,27 +51,35 @@
         </q-card>
       </q-dialog>
     </div>
-    <div class="flex flex-center q-mt-xl">
-      <q-btn
-        v-motion
-        :initial="{ opacity: 0, y: 100 }"
-        :enter="{ opacity: 1, y: 0, scale: 1.1 }"
-        :hovered="{ scale: 1.2 }"
-        class="q-my-md q-px-lg"
-        :to="{name: 'services'}"
-        rounded
-        outline
-        block
-        size="20px"
-        color="primary"
-        label="Conheça todos os serviços"
-      />
-    </div>
-  </q-page-container>
+    </q-scroll-area>
+  </q-page>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref,onMounted } from "vue";
+
+const emit = defineEmits(["breadcrumbs"]);
+const breadcrumb = ref([
+  {
+    "to": "/",
+    "icon": "home",
+    "label": "Home",
+    "active": true
+  },
+  {
+    "to": "/#servicos",
+    "icon": "widgets",
+    "label": "Serviços",
+    "active": false
+  },
+  {
+    "to": "",
+    "icon": "widgets",
+    "label": "Todos os Serviços",
+    "active": false
+  }
+]);
+
 const cards = ref([
   {
     icon: "mdi-application",
@@ -120,18 +99,18 @@ const cards = ref([
     subtitle: "Aplicativos feitos para os principais dispositivos do mercado.",
     route: { name: "mobile-development" },
   },
-  {
-    icon: "mdi-lightbulb",
-    title: "Consultoria em Projetos/T.I",
-    subtitle: "Estamos prontos para te ajudar a tirar o seu projeto do papel!",
-    route: { name: "consulting-ti" },
-  },
-  {
-    icon: "mdi-cart-plus",
-    title: "Lojas Virtuais/E-commerce",
-    subtitle: "Venda seus produtos para qualquer parte do mundo!",
-    route: { name: "e-comerce" },
-  },
+  // {
+  //   icon: "mdi-lightbulb",
+  //   title: "Consultoria em Projetos/T.I",
+  //   subtitle: "Estamos prontos para te ajudar a tirar o seu projeto do papel!",
+  //   route: { name: "consulting-ti" },
+  // },
+  // {
+  //   icon: "mdi-cart-plus",
+  //   title: "Lojas Virtuais/E-commerce",
+  //   subtitle: "Venda seus produtos para qualquer parte do mundo!",
+  //   route: { name: "e-comerce" },
+  // },
   {
     icon: "mdi-wordpress",
     title: "Suporte Wordpress",
@@ -140,34 +119,51 @@ const cards = ref([
   },
   {
     icon: "mdi-check-decagram",
-    title: "Redes Sociais",
+    title: "Administração de Redes Sociais",
     subtitle: "Gerenciamento e configuração das principais redes sociais",
     route: { name: "social-media-administration" },
   },
-  // {
-  //   icon: "mdi-palette",
-  //   title: "Criação de Artes Digitais",
-  //   subtitle: "Artes digitais personalizadas utilizando I.A"
-  // },
-  // {
-  //   icon: "mdi-marker-check",
-  //   title: "Marketing Digital",
-  //   subtitle: "Criação e acompanhamento de campanhas digitais "
-  // },
-  // {
-  //   icon: "mdi-compass-rose",
-  //   title: "Identidade visual",
-  //   subtitle: "Criação da identidade da sua marca ou empresa"
-  // }
+  {
+    icon: "mdi-palette",
+    title: "Criação de Logo Marcas",
+    subtitle: "Criação de logo marcas personalizadas para a sua empresa",
+    route: { name: "logo-creation" },
+  },
+  {
+    icon: "mdi-marker-check",
+    title: "Marketing Digital",
+    subtitle: "Criação e acompanhamento de campanhas digitais",
+    route: { name: "digital-marketing" }
+  },
+  {
+    icon: "mdi-palette",
+    title: "Criação de Artes Digitais",
+    subtitle: "Criação de artes personalizadas utilizando I.A",
+    route: { name: "digital-arts" },
+  },
+  {
+    icon: "mdi-compass-rose",
+    title: "Identidade visual",
+    subtitle: "Criação da identidade da sua marca ou empresa",
+    route: { name: "visual-identity" }
+  },
+  {
+    icon: "mdi-image-edit",
+    title: "Edição de Imagem",
+    subtitle: "Edição de fotos e imagens para redes sociais etc",
+    route: { name: "image-edition" }
+  },
+  {
+    icon: "mdi-movie-edit",
+    title: "Edição de Video",
+    subtitle: "Edição de videos e videos curtos para TikTok, Youtube etc",
+    route: { name: "video-edition" }
+  }
 ]);
 
-const dialogVisible = ref(false);
-const currentItem = ref({});
-
-const openDialog = (index) => {
-  currentItem.value = cards.value[index];
-  dialogVisible.value = true;
-};
+onMounted(async () => {
+  emit("breadcrumb", breadcrumb.value);
+});
 </script>
 
 <style scoped>
