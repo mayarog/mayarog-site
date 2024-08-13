@@ -29,7 +29,6 @@
 </template>
 
 <script setup>
-import { defineOptions } from "vue";
 import { useTermsText, privacyPolicyText } from "src/constants/Texts";
 import { useQuasar } from "quasar";
 

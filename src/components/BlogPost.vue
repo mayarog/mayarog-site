@@ -1,11 +1,10 @@
 <template>
   <div class="q-pa-md">
     <div class="col-12">
-      <p class="text-h2">{{ props.title }}</p>
+      <p class="text-h2 q-mt-md">{{ props.title }}</p>
     </div>
     <div class="column flex justify-center">
       <div class="row flex wrap q-gutter-md">
-        <div class=""></div>
         <div>
           <p
             v-for="(content, key) in contents"
@@ -28,7 +27,7 @@
                 maxHeight: '420px',
                 float: props.thumbAlign,
               }"
-              class="rounded col-6 q-mx-lg q-mb-md"
+              class="rounded col-6 q-mx-lg q-mb-md desktop-only"
             />
             <span v-html="content"></span>
           </p>
