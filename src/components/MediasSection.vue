@@ -100,6 +100,15 @@
               @change="(v) => (email = v)"
               @update:value="email = $event"
             />
+            <p class="text-body1 text-bold text-white q-pt-sm">
+              Já é assinante e deseja se cancelar a assinatura,
+              <router-link
+                class="text-primary"
+                :to="{ name: 'newsletter-unsubscribe' }"
+              >
+                clique aqui
+              </router-link>
+            </p>
           </div>
           <div>
             <q-btn

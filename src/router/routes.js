@@ -63,6 +63,11 @@ const routes = [
         name: "desenvolvimento-sistemas",
         component: () => import("pages/UnderConstruction.vue"),
       },
+      {
+        path: "newsletter-desinscrever",
+        name: "newsletter-unsubscribe",
+        component: () => import("pages/NewsletterUnsubPage.vue"),
+      },
     ],
   },
   {
