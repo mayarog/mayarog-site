@@ -108,12 +108,12 @@ const cards = ref([
     subtitle: "Sistemas personalizados para ajudar nas metas do seu negócio.",
     route: { name: "web-or-desktop" },
   },
-  {
-    icon: "mdi-airplane-landing",
-    title: "Landing Pages",
-    subtitle: "Direcione o público direto para a sua página exclusiva.",
-    route: { name: "landing-pages" },
-  },
+  // {
+  //   icon: "mdi-airplane-landing",
+  //   title: "Landing Pages",
+  //   subtitle: "Direcione o público direto para a sua página exclusiva.",
+  //   route: { name: "landing-pages" },
+  // },
   {
     icon: "mdi-cellphone",
     title: "Desenvolvimento de Aplicativos",
@@ -138,11 +138,12 @@ const cards = ref([
     subtitle: "Total suporte para o seu site ou sistema feito em wordpress.",
     route: { name: "wordpress-support" },
   },
-  // {
-  //   icon: "mdi-check-decagram",
-  //   title: "Redes Sociais",
-  //   subtitle: "Gerenciamento e configuração das principais redes sociais"
-  // },
+  {
+    icon: "mdi-check-decagram",
+    title: "Redes Sociais",
+    subtitle: "Gerenciamento e configuração das principais redes sociais",
+    route: { name: "social-media-administration" },
+  },
   // {
   //   icon: "mdi-palette",
   //   title: "Criação de Artes Digitais",
