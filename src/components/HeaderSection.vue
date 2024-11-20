@@ -20,7 +20,7 @@
                 class="rounded"
                 clickable
                 @click="animateScroll(0)"
-                href="/#frontpage"
+                href="/#home"
                 v-ripple
               >
                 <q-item-section avatar>

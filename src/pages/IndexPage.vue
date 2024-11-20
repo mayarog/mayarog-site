@@ -2,7 +2,7 @@
   <q-page>
     <q-scroll-area ref="scrollAreaRef" style="height: 91vh">
       <div class="container">
-        <FrontpageSection id="frontpage" />
+        <FrontpageSection id="home" />
         <AboutUsSection id="aboutus" />
         <ServiceSection id="services" />
         <ContactSection id="contact" />
