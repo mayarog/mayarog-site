@@ -58,7 +58,7 @@ const props = defineProps({
     ],
   },
 });
-const emit = defineEmits(["change:value"]);
+const emit = defineEmits(["change:value","update:value"]);
 
 const localValue = ref(props.value);
 
