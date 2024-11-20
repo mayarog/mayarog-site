@@ -5,7 +5,7 @@
         <FrontpageSection id="frontpage" />
         <AboutUsSection id="aboutus" />
         <ServiceSection id="services" />
-        <ContactSection />
+        <ContactSection id="contact" />
         <MediasSection id="medias" />
       </div>
       <FooterSection id="footer" />
