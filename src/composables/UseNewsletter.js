@@ -5,7 +5,6 @@ export default function UseNewsletter() {
 
   const subscribe = async ({ email }) => {
     const payload = {
-      id: 1,
       email,
       created_at: new Date().toISOString().split("T")[0],
     };
