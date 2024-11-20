@@ -1,8 +1,8 @@
 {
   "name": "mayarog-site",
   "version": "0.0.1",
-  "description": "Mayarog Web Site v1.0",
-  "productName": "Mayarog Web | Soluções e Consultoria Web",
+  "description": "Mayarog Tech Site v1.0",
+  "productName": "Mayarog Tech | Soluções e Consultoria Tech",
   "author": "Marc Reinan Gomes <marcreinan@hotmail.com>",
   "private": true,
   "scripts": {
