@@ -152,11 +152,17 @@ async function handleNewsletter() {
       alert("Preencha seu email para assinar o newsletter!");
       return;
     }
-    try {
-      await subscribe({ email: email.value });
-    } catch (error) {
-      alert(error.message);
-    }
+      await subscribe({ email: email.value }).then(() => {
+        alert("Assinatura realizada com sucesso!");
+        email.value = "";
+      }).catch((error) => {
+        if (error.code === "23505") {
+          alert("Você já está cadastrado!");
+          email.value = "";
+        } else {
+          alert(error.message);
+        }
+      });
   });
 }
 </script>
