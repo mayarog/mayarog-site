@@ -18,10 +18,6 @@ app.use((req, res, next) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello from the secondary server!");
-});
-
 app.get("/api/newsletter/unsubscribe/mailer/:email", async (req, res) => {
   console.log(req.params.email);
   if (!req.params.email) {
