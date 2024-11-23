@@ -12,7 +12,7 @@
     "dev": "quasar dev",
     "serve": "node server/App.js",
     "build": "quasar build",
-    "build:express": "NODE_ENV=production node server/App.js",
+    "build:express": "NODE_ENV=production",
     "deploy": "gh-pages --dist 'dist/spa' --branch 'gh-pages'",
     "deploy-build": "yarn build && git add dist && git commit --amend --no-edit && yarn deploy"
   },
