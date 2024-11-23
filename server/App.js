@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const sendUnsubMail = require("../src/mail/NewsletterUnsubMailer.js");
+const path = require("path");
 
 const vue_app_host = `https://${process.env.VUE_APP_HOST}:${process.env.VUE_APP_PORT}`;
 
@@ -28,6 +29,12 @@ app.get("/api/newsletter/unsubscribe/mailer/:email", async (req, res) => {
   }
   await sendUnsubMail(req.params.email);
   res.send("Ok");
+});
+
+app.use(express.static(path.join(__dirname, "../dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
 app.listen(port, () => {
