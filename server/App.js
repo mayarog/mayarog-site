@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const sendUnsubMail = require("./mail/NewsletterUnsubMailer.js");
+const sendUnsubMail = require("./src/mail/NewsletterUnsubMailer.js");
 
 const vue_app_host = `http://${process.env.VUE_APP_HOST}:${process.env.VUE_APP_PORT}`;
 
