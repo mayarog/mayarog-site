@@ -3,11 +3,19 @@ const express = require("express");
 const cors = require("cors");
 const sendUnsubMail = require("../src/mail/NewsletterUnsubMailer.js");
 
-const vue_app_host = `http://${process.env.VUE_APP_HOST}:${process.env.VUE_APP_PORT}`;
+const vue_app_host = `https://${process.env.VUE_APP_HOST}:${process.env.VUE_APP_PORT}`;
 
 const app = express();
 app.use(cors({ origin: [vue_app_host] }));
 const port = process.env.API_PORT;
+
+app.use((req, res, next) => {
+  if (req.headers.host.split(':')[1] == port) {
+    next();
+  } else {
+    res.status(403).send("Forbidden");
+  }
+});
 
 app.get("/", (req, res) => {
   res.send("Hello from the secondary server!");
