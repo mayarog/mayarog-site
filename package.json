@@ -10,9 +10,9 @@
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
-    "serve": "node serve/App.js",
+    "serve": "node server/App.js",
     "build": "quasar build",
-    "build:express": "NODE_ENV=production node serve/App.js",
+    "build:express": "NODE_ENV=production node server/App.js",
     "deploy": "gh-pages --dist 'dist/spa' --branch 'gh-pages'",
     "deploy-build": "yarn build && git add dist && git commit --amend --no-edit && yarn deploy"
   },
