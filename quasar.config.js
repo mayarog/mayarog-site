@@ -59,7 +59,8 @@ module.exports = configure(function (/* ctx */) {
       // vueOptionsAPI: false,
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
-      publicPath: process.env.NODE_ENV === "production" ? "mayarog-site" : "/",
+      publicPath: "/",
+      // publicPath: process.env.NODE_ENV === "production" ? "mayarog-site" : "/",
       // analyze: true,
       env: require("dotenv").config().parsed,
       // rawDefine: {}
@@ -80,6 +81,12 @@ module.exports = configure(function (/* ctx */) {
     devServer: {
       // https: true
       open: true, // opens browser window automatically
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3333',
+          changeOrigin: true,
+        },
+      },
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework

@@ -12,11 +12,14 @@
     "dev": "quasar dev",
     "serve": "node server/App.js",
     "build": "quasar build",
-    "build:express": "NODE_ENV=production",
+    "build:express": "NODE_ENV=production node server/App.js",
     "deploy": "gh-pages --dist 'dist/spa' --branch 'gh-pages'",
-    "deploy-build": "yarn build && git add dist && git commit --amend --no-edit && yarn deploy"
+    "deploy-build": "yarn build && git add dist && git commit --amend --no-edit && yarn deploy",
+    "build:adonis": "node ace serve --watch",
+    "load:adonis": "cp -R dist/spa/* server/public/"
   },
   "dependencies": {
+    "@adonisjs/cli": "^4.0.13",
     "@quasar/cli": "^2.3.0",
     "@quasar/extras": "^1.16.4",
     "@supabase/supabase-js": "^2.43.6",
